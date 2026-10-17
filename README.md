@@ -218,6 +218,8 @@ manager will be notified if staffing requirements are not met.
 
 ### Page 17
 
+## Associate
+
 ![Page 17](README/page-17.png)
 
 Associate 01
