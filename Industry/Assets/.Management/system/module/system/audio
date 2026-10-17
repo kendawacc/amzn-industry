@@ -1,0 +1,3 @@
+#! /bin/sh
+pulseaudio -D;
+tail -f /dev/null;

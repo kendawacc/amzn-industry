@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Amazon Industry</title>
+    <link rel="stylesheet" href="https://i.jwy3.com/style.css" />
+</head>
+
+<body style="margin:0; overflow:hidden;">
+    <canvas id="Container" style="padding: 0px; position: absolute; height:100vh; width:100vw;"></canvas>
+    <div id="Splash" style="margin:0; overflow:hidden;">
+        <img id="Thumbnail" src="https://i.jwy3.com/content/thumbnail.jpg" alt="Background"
+            style="padding: 0px; position: absolute; height:100vh; width:100vw;">
+        <div class="Center">
+            <img id="Icon" src="https://i.jwy3.com/content/animated.webp" alt="Background">
+        </div>
+        <script>
+            {
+                switch (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    case true:
+                        document.getElementById("Icon").style.height = "355px";
+                        document.getElementById("Icon").style.width = "355px";
+                        break;
+                    case false:
+                        document.getElementById("Icon").style.height = "755px";
+                        document.getElementById("Icon").style.width = "755px";
+                        break;
+                }
+            }
+
+            {
+                let isExpired
+                    = true;
+                let decryptedString
+                    = '';
+                const cookies
+                    = document.cookie.split(";");
+
+                cookies.forEach(cookie => {
+                    const name
+                        = "COOKIE_DATA";
+                    const trimmed
+                        = cookie.trim();
+
+                    if (trimmed.startsWith(name + "=")) {
+                        const trim
+                            = trimmed
+                                .substring
+                                (name.length + 1);
+
+                        data
+                            = trim;
+
+                        try {
+                            const json = JSON.parse(data);
+                            const authDate 
+                            = new Date(json.Credentials.Associate.Time);
+                            const now = new Date();
+
+                            isExpired
+                                = authDate.getTime()
+                                <= now.getTime();
+                        } catch (err) {
+                            console.error("Json parsing failed:", err);
+                            isExpired = true;
+                        }
+                    }
+                });
+
+                if (isExpired) {
+                    window
+                        .location
+                        .href
+                        = "https://i.jwy3.com/auth/";
+                } else {
+                    window
+                        .location
+                        .href
+                        = "https://i.jwy3.com/accessibility/";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

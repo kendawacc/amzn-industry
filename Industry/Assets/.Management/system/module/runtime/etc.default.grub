@@ -1,0 +1,6 @@
+GRUB_TIMEOUT=0
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_DISTRIBUTOR=
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 vt.global_cursor_default=0 systemd.show_status=false rd.udev.log_level=0 console=tty3 video=vesa:off video=efifb:off fbcon=map:1"
+GRUB_CMDLINE_LINUX=""

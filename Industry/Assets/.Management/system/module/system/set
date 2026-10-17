@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+xset q >/dev/null 2>&1
+ps -C pulseaudio >/dev/null 2>&1

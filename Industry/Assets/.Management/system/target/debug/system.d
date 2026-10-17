@@ -1,0 +1,1 @@
+/mnt/c/Users/Kendall\ D\ -\ Laptop/Documents/git/kdcamazon/industry/Industry/Assets/.Management/system/target/debug/system: /mnt/c/Users/Kendall\ D\ -\ Laptop/Documents/git/kdcamazon/industry/Industry/Assets/.Management/system/src/main.rs

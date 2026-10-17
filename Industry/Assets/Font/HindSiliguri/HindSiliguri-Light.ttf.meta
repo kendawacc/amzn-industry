@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 79c2bf97cabfa5e429e6e363134ffe68
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hind Siliguri
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f636b001ed3c69344bdf7f2d77d29b83, type: 3}
+  - {fileID: 12800000, guid: c870e54e28e5fe840b985a5fd05e70f4, type: 3}
+  - {fileID: 12800000, guid: 236d015f379587644ba197b7a4fc718f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

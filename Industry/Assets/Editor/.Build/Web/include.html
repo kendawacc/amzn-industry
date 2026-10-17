@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link rel="stylesheet" href="https://i.jwy3.com/style.css" />
+  <script src="data/data.loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+    integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+</head>
+
+<body style="margin:0; overflow:hidden;">
+  <canvas id="UnityContainer" style="padding: 0px; position: absolute; height:100vh; width:100vw;"></canvas>
+  <div id="SplashContainer" style="margin:0; overflow:hidden;">
+    <img id="Thumbnail" src="https://i.jwy3.com/content/thumbnail.jpg" alt="Background"
+      style="padding: 0px; position: absolute; height:100vh; width:100vw;">
+    <div class="Center">
+      <img id="Icon" src="https://i.jwy3.com/content/animated.webp" alt="Background">
+    </div>
+    <script>
+      switch (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        case true:
+          document.getElementById("Icon").style.height = "355px";
+          document.getElementById("Icon").style.width = "355px";
+          break;
+        case false:
+          document.getElementById("Icon").style.height = "755px";
+          document.getElementById("Icon").style.width = "755px";
+          break;
+      } 
+    </script>
+  </div>
+  <form onsubmit="KeyboardInputOnSubmit()" autocomplete="off"
+    style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+    <input id="keyboard" type="text" style="font-size: 42px">
+  </form>
+  <input id="WindowFileDialog" type="file" multiple="multiple" style="display:none" />
+  <script>
+    function KeyboardInputOnSubmit() {
+      document.getElementById("keyboard").blur();
+      event.preventDefault();
+    }
+  </script>
+  <script>
+    var buildUrl
+      = "data";
+
+    var config
+      = {
+      arguments: [],
+      dataUrl: buildUrl + "/data.data.br",
+      frameworkUrl: buildUrl + "/data.framework.js.br",
+      codeUrl: buildUrl + "/data.wasm.br",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "KenDawCorp",
+      productName: "Amzn",
+      productVersion: "0"
+    };
+
+    var canvas
+      = document
+        .querySelector
+        ("#UnityContainer");
+    createUnityInstance(
+      canvas,
+      config)
+      .then((Instance) => {
+
+        window
+          .Module
+          = Instance;
+      });
+  </script>
+</body>
+</html>

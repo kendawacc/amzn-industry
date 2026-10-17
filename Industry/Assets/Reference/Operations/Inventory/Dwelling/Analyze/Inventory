@@ -1,0 +1,194 @@
+<div class="a-box-group a-spacing-large a-spacing-top-medium">
+    <div class="a-box a-first a-box-title">
+        <div class="a-box-inner">
+            <div class="a-row">
+                <div class="a-column a-span8">
+                    <span class="a-size-large section-title a-text-bold">Inventory</span>
+                    <span class="help">
+                        <span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;false&quot;,&quot;position&quot;:&quot;triggerRight&quot;,&quot;url&quot;:&quot;/s/help?i=inventory&quot;}">
+                            <i class="s-icon s-icon-info"></i>
+                        </span>
+                    </span>
+                </div>
+                <div class="a-column a-span4 a-text-right filter a-span-last">
+                    <span class="filters-popover">
+                        <span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;true&quot;,&quot;name&quot;:&quot;filters-inventory-popover&quot;,&quot;activate&quot;:&quot;onclick&quot;,&quot;header&quot;:&quot;Advanced Filters&quot;,&quot;position&quot;:&quot;triggerBottom&quot;}">
+                            <i class="p-icon">&nbsp;</i>
+                        </span>
+                    </span>
+                    <div class="a-popover-preload" id="a-popover-filters-inventory-popover">
+                        <div class="a-box a-last advanced-filters">
+                            <div class="a-box-inner">
+                                <table class="a-keyvalue a-horizontal-stripes a-search">
+                                    <tbody>
+                                        <tr data-col="inventory-container">
+                                            <th>Container</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-asin">
+                                            <th>ASIN</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-fnSku">
+                                            <th>FNSku</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-fcSku">
+                                            <th>FCSku</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-lpn">
+                                            <th>LPN</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-disposition">
+                                            <th>Disposition</th>
+                                            <td>
+                                                <div class="filters-select">
+                                                    <select class="a-input-text">
+                                                        <option value=""/>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-consumer">
+                                            <th>Consumer</th>
+                                            <td>
+                                                <div class="filters-select">
+                                                    <select class="a-input-text">
+                                                        <option value=""/>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-consumer-id">
+                                            <th>Consumer ID</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-rootContainerScannableId">
+                                            <th>Outer location</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-rootContainerLocationType">
+                                            <th>Outer location type</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="inventory-title">
+                                            <th>Title</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-box a-last">
+        <div class="a-box-inner">
+            <table id="table-inventory" class="a-bordered a-horizontal-stripes">
+                <thead>
+                    <tr>
+                        <th id="inventory-container">Container</th>
+                        <th id="inventory-asin">ASIN</th>
+                        <th id="inventory-fnSku">FNSku</th>
+                        <th id="inventory-fcSku">FCSku</th>
+                        <th id="inventory-lpn">LPN</th>
+                        <th id="inventory-quantity" data-func="sum">Quantity</th>
+                        <th id="inventory-disposition">Disposition</th>
+                        <th id="inventory-consumer">Consumer</th>
+                        <th id="inventory-consumer-id">Consumer ID</th>
+                        <th id="inventory-rootContainerScannableId">Outer location</th>
+                        <th id="inventory-rootContainerLocationType">Outer location type</th>
+                        <th id="inventory-title">Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-row-id="-ZZQD3ZC0G5">
+                        <td>
+                            <a href="/JWY3/results?s=15172582">15172582</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=B01IRB054O">B01IRB054O</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=B01IRB054O">B01IRB054O</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=ZZQD3ZC0G5">ZZQD3ZC0G5</a>
+                        </td>
+                        <td></td>
+                        <td class="a-text-right">1</td>
+                        <td>SELLABLE</td>
+                        <td>UNOWNED</td>
+                        <td class="a-text-right">&nbsp;</td>
+                        <td>
+                            <a href="/JWY3/results?s=paXPBTNGQ8K">paXPBTNGQ8K</a>
+                        </td>
+                        <td>SPECIAL</td>
+                        <td>
+                            <a target="_blank" href="https://www.amazon.com/gp/product/B01IRB054O">Hill &#39;s Science Diet Adult Urinary &amp;Hairball Control Wet Cat Food, Chicken Minced, 5.5 oz. Cans, 24-Pack</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="pagination-token" style="visibility: hidden">true</div>

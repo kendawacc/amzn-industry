@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Accessibility.Operations.Inventory.Dwelling
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Accessibility.Operations.Inventory.Dwelling
+  m_GUID: b54d1c11267f03843bbec312c1f0a55c
+  m_SerializeEntries:
+  - m_GUID: 03fa893f535a9274f99ff9ff228dc968
+    m_Address: Assets/Material/SoftGrey(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25f050675d404a54188467390bb4c14e
+    m_Address: Assets/Material/Yellow(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 376d476434223f1459d7aac959e8e0d6
+    m_Address: Accessibility/Operations/Inventory/Dwelling/dz-P-IBStowBuffer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 422fe0a287a62884ca7c54157d157661
+    m_Address: Assets/Material/Wireframe(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4340202239f90184fbffc99bcdef45e8
+    m_Address: Assets/Material/DarkGrey(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49cc391d9b7b1564fbf2ba12965f6147
+    m_Address: Assets/Material/DarkBlue(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c9496ba13dc4084ba7332243e8e27b5
+    m_Address: Assets/Model/Barrier/Rack Leg Protectors(Model).blend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57702a2edab7b6948a72fa8abd86f819
+    m_Address: Assets/Material/Red(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59f351092e17ffe48bd64a968d30f029
+    m_Address: Accessibility/Operations/Inventory/Dwelling/dz-P-IBReceiveBuffer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b312ccb05c6a364ebccebd698b78d41
+    m_Address: Assets/Material/BlueTransparent(Material).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e26111e0ae5aaf439d542e09a56b3c7
+    m_Address: Assets/Model/Barrier/Mesh Wire Barrier(Model).blend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a150a67947960b649a63d6efb6ec5a70
+    m_Address: Assets/Model/Barrier/Pedestrian Barrier 190-T2-P1(Model).blend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a540c8aa83a0c71419c955b66aebfd5f
+    m_Address: Assets/Material/BlackTransparent(Material) 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f7d5ca7f4c7c4704992a4fbe1bc155bd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b8359915662ea9f48a37e8ef41a74268, type: 2}
+    - {fileID: 11400000, guid: 3fdee46f1c9e98c4194d6f7c643676e3, type: 2}

@@ -1,0 +1,120 @@
+<div class="a-box-group a-spacing-large a-spacing-top-medium">
+    <div class="a-box a-first a-box-title">
+        <div class="a-box-inner">
+            <div class="a-row">
+                <div class="a-column a-span8">
+                    <span class="a-size-large section-title a-text-bold">Product</span>
+                    <span class="help">
+                        <span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;false&quot;,&quot;position&quot;:&quot;triggerRight&quot;,&quot;url&quot;:&quot;/s/help?i=product&quot;}">
+                            <i class="s-icon s-icon-info"></i>
+                        </span>
+                    </span>
+                </div>
+                <div class="a-column a-span4 a-text-right filter a-span-last"></div>
+            </div>
+        </div>
+    </div>
+    <div class="a-box a-last">
+        <div class="a-box-inner">
+            <div class="a-row">
+                <div class="a-column a-span4">
+                    <img alt="" src="https://m.media-amazon.com/images/I/51jih9O6QDL._SCLZZZZZZZ__.jpg"/>
+                    <div class="pack-quantity-badge">Pack of 24
+                  </div>
+                </div>
+                <div class="a-column a-span7">
+                    <table data-row-id="B01IRB054O" class="a-keyvalue">
+                        <tr>
+                            <th>ASIN</th>
+                            <td>
+                                <a href="/JWY3/results?s=B01IRB054O">B01IRB054O</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>
+                                <a target="_blank" href="https://www.amazon.com/gp/product/B01IRB054O">Hill &#39;s Science Diet Adult Urinary &amp;Hairball Control Wet Cat Food, Chicken Minced, 5.5 oz. Cans, 24-Pack</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Binding</th>
+                            <td>Target</td>
+                        </tr>
+                        <tr>
+                            <th>Publisher</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Vendor Code</th>
+                            <td>HILMJ</td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td>9.36 pounds</td>
+                        </tr>
+                        <tr>
+                            <th>Dimensions</th>
+                            <td>3.20 x 14.05 x 10.30 IN</td>
+                        </tr>
+                        <tr>
+                            <th>List Price</th>
+                            <td>USD 69.84</td>
+                        </tr>
+                        <tr>
+                            <th>Expiration Date</th>
+                            <td class="timestamp"></td>
+                        </tr>
+                        <tr>
+                            <th>Pack Quantity</th>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <th>Sortable</th>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <th>Conveyable</th>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <th>Very High Value</th>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <th>Master Case</th>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <th>FCSku Scope</th>
+                            <td>FNSKU</td>
+                        </tr>
+                        <tr>
+                            <th>Sales Forecast</th>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <th>Sales History (approx)</th>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <th>Sales Override</th>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <th>ASIN Velocity (approx)</th>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <th>Provenance Value</th>
+                            <td>UNTRACKED</td>
+                        </tr>
+                        <tr>
+                            <th>Provenance IOG</th>
+                            <td>Info Not Found</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

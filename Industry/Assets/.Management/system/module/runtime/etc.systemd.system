@@ -1,0 +1,11 @@
+[Unit]
+Description=Indus
+
+[Service]
+Type=simple
+ExecStart=/indus/system
+WorkingDirectory=/indus
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config
+	xmlns="http://openbox.org/3.4/rc">
+	<applications>
+		<application name="*">
+			<layer>above</layer>
+			<decor>no</decor>
+			<focus>yes</focus>
+			<fullscreen>yes</fullscreen>
+		</application>
+	</applications>
+</openbox_config>
