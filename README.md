@@ -6,7 +6,7 @@ by: Kendall Dawson
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
-## Dwelling Software Presentation
+## Dwelling
 
 ### Page 1
 
@@ -149,7 +149,7 @@ selected date range
 
 ---
 
-## IndusOS
+## Labor Assignment
 
 ### Page 13
 
@@ -264,6 +264,8 @@ performance trends, training opportunities, and areas that
 may require additional support.
 
 ### Page 20
+
+## TDR
 
 ![Page 20](README/page-20.png)
 
@@ -477,6 +479,8 @@ Menu
 
 ### Page 44
 
+## Yard
+
 ![Page 44](README/page-44.png)
 
 Yard 01
@@ -506,6 +510,8 @@ graph format.
 ### Page 46
 
 ![Page 46](README/page-46.png)
+
+## OS
 
 OS 01
 OS Navigation Menu
