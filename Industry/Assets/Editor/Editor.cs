@@ -187,6 +187,30 @@ public class EditorManagement : Editor
                         Array));
                     }
                     break;
+                    case "WebAisle(Module)":
+                    {
+                        NamedBuildTarget NamedBuildTarget
+                        = NamedBuildTarget
+                        .FromBuildTargetGroup(
+                        EditorUserBuildSettings
+                        .selectedBuildTargetGroup);
+
+                        Array Array
+                        = new string[]
+                        {
+                            "Web",
+                            "WebAisle"
+                        };
+
+                        PlayerSettings
+                        .SetScriptingDefineSymbols(
+                        NamedBuildTarget,
+                        String.Join(
+                        ";",
+                        (string[])
+                        Array));
+                    }
+                    break;
                 case "Firmware(Module)":
                     {
                         NamedBuildTarget NamedBuildTarget
@@ -410,6 +434,15 @@ public class EditorManagement : Editor
                 .Append("/inventory");
                 StringBuilder
                 .Append("/function");
+#elif WebAisle
+                StringBuilder
+                .Append("/accessibility");
+                StringBuilder
+                .AppendLine("/operations");
+                StringBuilder
+                .Append("/inventory");
+                StringBuilder
+                .Append("/aisle");
 #endif
                 StringBuilder
                 .Append("/data");
@@ -577,6 +610,15 @@ public class EditorManagement : Editor
                                 .Append("/inventory");
                                 StringBuilder
                                 .Append("/function");
+#elif WebAisle
+                                StringBuilder
+                                .Append("/accessibility");
+                                StringBuilder
+                                .Append("/operations");
+                                StringBuilder
+                                .Append("/inventory");
+                                StringBuilder
+                                .Append("/aisle");
 #endif
                                 StringBuilder
                                 .Append("/data");

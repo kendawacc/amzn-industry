@@ -147,6 +147,12 @@ public class Build : IPreprocessBuildWithReport, IPostprocessBuildWithReport
             + "/operations"
             + "/inventory"
             + "/function";
+#elif WebAisle
+            Path
+            += "/accessibility"
+            + "/operations"
+            + "/inventory"
+            + "/aisle";
 #endif
             DirectoryInfo DirectoryInfo 
             = new DirectoryInfo

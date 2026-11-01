@@ -451,7 +451,7 @@ public class Backend : MonoBehaviour
 
                 ["ID"]
                 = 0,
-#elif WebDwelling || WebFunction
+#elif WebDwelling || WebFunction || WebAisle
                 ["Site"]
                 = String
                 .Empty,
@@ -1510,6 +1510,7 @@ public class Backend : MonoBehaviour
                         break;
                 }
             }
+
 #elif WebFunction
             {
                 Http Http
@@ -1659,6 +1660,208 @@ public class Backend : MonoBehaviour
                         }
                         break;
                 }
+            }
+
+#elif WebAisle
+            {
+                Http Http
+                = new Http();
+
+                {
+                    StringBuilder StringBuilder
+                    = new StringBuilder();
+
+                    StringBuilder
+                    .Append(EndPoint);
+
+                    StringBuilder
+                    .Append("/Request");
+
+                    string String
+                    = StringBuilder
+                    .ToString();
+
+                    Http.Url
+                    = String;
+                }
+
+                {
+                    JToken JToken
+                    = ManageJObject
+                    ["Credentials"]
+                    ["Associate"];
+
+                    string String
+                    = JToken
+                    .ToString(
+                    Formatting
+                    .None);
+
+                    Dictionary<string, string> Dictionary
+                    = new Dictionary<string, string>
+                    {
+                        {
+                            "Credentials",
+                            String
+                        }
+                    };
+
+                    Http
+                    .HttpHeader
+                    = Dictionary;
+                }
+
+                {
+                    string String
+                    = new JObject
+                    {
+                        ["Associate"]
+                        = new JObject
+                        {
+                            ["UUID"]
+                            = (string)
+                            ManageJObject
+                            ["Credentials"]
+                            ["Associate"]
+                            ["UUID"],
+
+                            ["Site"]
+                            = new
+                            JObject()
+                        }
+                    }
+                    .ToString(
+                    Formatting
+                    .None);
+
+                    Http.Form
+                    = String;
+                }
+
+                Http
+                .HttpCache
+                = Http
+                .Cache
+                .Never;
+
+                Http
+                .HttpPriority
+                = Http
+                .Priority
+                .Highest;
+
+                byte[] Bytes
+                = await Http
+                .PostAsync();
+
+                bool Boolean
+                = Bytes
+                .Length > 0;
+
+                switch (Boolean)
+                {
+                    case true:
+                        {
+                            string String
+                            = Encoding.UTF8
+                            .GetString(Bytes);
+
+                            JToken JToken
+                            = JObject
+                            .Parse(String);
+
+#if UNITY_EDITOR
+                            String
+                            = JToken
+                            .ToString
+                            (Formatting
+                            .Indented);
+
+                            Debug
+                            .Log(String);
+#endif
+
+                            string Path
+                            = "Associate"
+                            + ".Error";
+
+                            Boolean
+                            = JToken
+                            .SelectToken(
+                            Path,
+                            errorWhenNoMatch: false)
+                            == null;
+
+                            switch (Boolean)
+                            {
+                                case true:
+                                    {
+                                        ManageJObject
+                                        ["Credentials"]
+                                        ["Associate"]
+                                        ["Site"]
+
+                                        = (string)
+                                        JToken
+                                        ["Associate"]
+                                        ["Site"];
+                                    }
+                                    break;
+                            }
+                        }
+                        break;
+                }
+            }
+
+            {
+                    Transform Transform
+                    = Canvas
+                    .transform.Find("Interface[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Inventory[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Content[Object]")
+                    .transform.Find("Top[Object]")
+                    .transform.Find("Right[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Profile[Button]")
+                    .transform;
+
+                    Transform
+                    .gameObject
+                    .SetActive(false);
+
+                    {
+                        foreach (JToken JToken
+                        in new JObject[]
+                        {
+                            new JObject
+                            {
+                                ["Event"]
+                                = "Profile"
+                            },
+
+                            new JObject
+                            {
+                                ["Event"]
+                                = "Info"
+                            }
+                        })
+                        {
+                            Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Cancellation
+                            = true;
+
+                            await
+                            Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Task
+                            (JToken);
+                        }
+                    }
+
+                    Transform
+                    .gameObject
+                    .SetActive(true);
             }
 #endif
         }
@@ -57673,6 +57876,1602 @@ public class Backend : MonoBehaviour
                 }
             }
             break;
+        }
+    }
+
+    #elif WebAisle
+    private string Module
+    = "Aisle";
+
+    private async UniTask Audit(
+    string Device)
+    {
+        {
+            {
+                {
+                    Canvas
+                    .transform.Find("Interface[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Inventory[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Content[Object]")
+                    .transform.Find("Top[Object]")
+                    .transform.Find("Left[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Options[Object]")
+                    .transform.Find("Floor[Object]")
+                    .transform.Find("Dropdown[Button]")
+                    .GetComponent<Button>()
+                    .onClick
+                    .AddListener(async() =>
+                    {
+                        Transform Transform
+                        = Canvas
+                        .transform.Find("Interface[Object]")
+                        .transform.Find("Accessibility[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Operations[Object]")
+                        .transform.Find("Inventory[Object]")
+                        .transform.Find("Aisle[Object]")
+                        .transform.Find("Content[Object]")
+                        .transform.Find("Top[Object]")
+                        .transform.Find("Left[Object]")
+                        .transform.Find("List[Object]")
+                        .transform.Find("Options[Object]")
+                        .transform.Find("Floor[Object]")
+                        .transform.Find("List[Object]")
+                        .transform;
+
+                        bool Boolean
+                        =! Transform
+                        .gameObject
+                        .activeSelf;
+
+                        Transform
+                        .gameObject
+                        .SetActive
+                        (Boolean);
+
+                        {
+                            RectTransform RectTransform
+                            = Transform.parent
+                            .transform.Find("Dropdown[Button]")
+                            .transform.Find("Icon[Image]")
+                            .GetComponent
+                            <RectTransform>();
+
+                            Quaternion Quaternion
+                            = RectTransform
+                            .rotation;
+
+                            Quaternion.z
+                            = 0f;
+
+                            switch (Boolean)
+                            {
+                                case true:
+                                    {
+                                        Quaternion.z
+                                        = 180f;
+                                    }
+                                    break;
+                            }
+
+                            RectTransform
+                            .rotation
+                            = Quaternion;
+                        }
+
+                       { 
+                            Animator Animator
+                            = Transform
+                            .GetComponent
+                            <Animator>();
+
+                            await Animate
+                            (Animator);
+                       }
+
+                        {
+                            Transform
+                            = Canvas
+                            .transform.Find("Interface[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Inventory[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("Center[Object]")
+                            .transform;
+
+                            {
+                                CanvasGroup CanvasGroup
+                                = Transform
+                                .GetComponent
+                                <CanvasGroup>();
+
+                                float Float
+                                = 1f;
+
+                                switch (Boolean)
+                                {
+                                    case true:
+                                        {
+                                            Float
+                                            = 0.5f;
+                                        }
+                                        break;
+                                }
+
+                                CanvasGroup
+                                .alpha
+                                =  Float;
+                            }
+
+                            {
+                                GraphicRaycaster GraphicRaycaster
+                                = Transform
+                                .GetComponent
+                                <GraphicRaycaster>();
+
+                                GraphicRaycaster
+                                .enabled
+                                =! Boolean;
+                            }
+                        }
+                    });
+                }
+
+                {
+                    Canvas
+                    .transform.Find("Interface[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Inventory[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Content[Object]")
+                    .transform.Find("Top[Object]")
+                    .transform.Find("Right[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Profile[Button]")
+                    .GetComponent<Button>()
+                    .onClick
+                    .AddListener(async () =>
+                    {
+                        Transform Transform
+                        = Canvas
+                        .transform.Find
+                        ("Widget[Object]")
+                        .transform;
+
+                        Transform
+                        .gameObject
+                        .SetActive(true);
+
+                        {
+                            Transform
+                            = Transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform;
+
+                            foreach (Transform _Transform
+                            in Transform)
+                            {
+                                _Transform
+                                .gameObject
+                                .SetActive(false);
+                            }
+
+                            {
+                                Transform
+                                = Transform.Find
+                                ("Operations[Object]")
+                                .transform;
+
+                                Transform
+                                .gameObject
+                                .SetActive(true);
+
+                                {
+                                    Transform
+                                    = Transform.Find("Manage[Object]")
+                                    .transform.Find("Aisle[Object]")
+                                    .transform;
+
+                                    foreach (Transform _Transform
+                                    in Transform)
+                                    {
+                                        _Transform
+                                        .gameObject
+                                        .SetActive(false);
+                                    }
+
+                                    {
+                                        Transform
+                                        = Transform.Find
+                                        ("Assoc[Object]")
+                                        .transform;
+
+                                        Transform
+                                        .gameObject
+                                        .SetActive(true);
+
+                                        Animator Animator
+                                        = Transform
+                                        .GetComponent
+                                        <Animator>();
+
+                                        await Animate
+                                        (Animator);
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            {
+                // Center
+            }
+        }
+
+        {
+            {
+                {
+                    Canvas
+                    .transform.Find("Widget[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Manage[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Bin[Object]")
+                    .transform.Find("Content[Object]")
+                    .transform.Find("List[Scroll-View]")
+                    .GetComponent
+                    <ScrollRect>()
+                    .content
+                    .transform.Find("Loc[Object]")
+                    .transform.Find("Label[Button]")
+                    .GetComponent
+                    <Button>()
+                    .onClick
+                    .AddListener(() =>
+                    {
+                        StringBuilder StringBuilder
+                        = new StringBuilder();
+
+                        StringBuilder
+                        .Append("https://");
+                        StringBuilder
+                        .Append("qi-fcresearch-na");
+                        StringBuilder
+                        .Append(".corp.amazon.com/");
+
+                        string String
+                        = (string)
+                        ManageJObject
+                        ["Credentials"]
+                        ["Associate"]
+                        ["Site"];
+
+                        StringBuilder
+                        .Append(String);
+
+                        StringBuilder
+                        .Append("/results");
+                        StringBuilder
+                        .Append("?s=");
+
+                        {
+                            string _String
+                            = Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Bin[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Loc[Object]")
+                            .transform.Find("Label[Button]")
+                            .GetComponent
+                            <TextMeshProUGUI>()
+                            .text;
+
+                            StringBuilder
+                            .Append(_String);
+                        }
+
+                        String
+                        = StringBuilder
+                        .ToString();
+                        #if UNITY_EDITOR
+                        Application.OpenURL(
+                        String);
+                        #elif UNITY_WEBGL
+                        JavaScript_OpenURL(
+                        String);
+                        #endif
+                    });
+
+                    {
+                        Canvas
+                        .transform.Find("Widget[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Accessibility[Object]")
+                        .transform.Find("List[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Operations[Object]")
+                        .transform.Find("Manage[Object]")
+                        .transform.Find("Aisle[Object]")
+                        .transform.Find("Bin[Object]")
+                        .transform.Find("Content[Object]")
+                        .transform.Find("List[Scroll-View]")
+                        .GetComponent
+                        <ScrollRect>()
+                        .content
+                        .transform.Find("Cont[Object]")
+                        .transform.Find("View[Object]")
+                        .transform.Find("Dropdown[Button]")
+                        .GetComponent<Button>()
+                        .onClick
+                        .AddListener(async ()=>
+                        {
+                            Transform Transform
+                            = Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Bin[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Cont[Object]")
+                            .transform.Find("View[Object]")
+                            .transform.Find("List[Object]")
+                            .transform;
+
+                            bool Boolean
+                            =! Transform
+                            .gameObject
+                            .activeSelf;
+
+                            Transform
+                            .gameObject
+                            .SetActive
+                            (Boolean);
+
+                            {
+                                RectTransform RectTransform
+                                = Transform.parent
+                                .transform.Find("Dropdown[Button]")
+                                .transform.Find("Icon[Image]")
+                                .GetComponent
+                                <RectTransform>();
+
+                                Quaternion Quaternion
+                                = RectTransform
+                                .rotation;
+
+                                Quaternion.z
+                                = 0f;
+
+                                switch (Boolean)
+                                {
+                                    case true:
+                                        {
+                                            Quaternion.z
+                                            = 180f;
+                                        }
+                                        break;
+                                }
+
+                                RectTransform
+                                .rotation
+                                = Quaternion;
+                            }
+
+                            { 
+                                Animator Animator
+                                = Transform
+                                .GetComponent
+                                <Animator>();
+
+                                await Animate
+                                (Animator);
+                            }
+                        });
+
+                        {
+                            Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Bin[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Cont[Object]")
+                            .transform.Find("View[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("More[Button]")
+                            .GetComponent
+                            <Button>()
+                            .onClick
+                            .AddListener(()=>
+                            {
+                                // fix this later
+                            });
+                        }
+                    }
+
+                    {
+                        Canvas
+                        .transform.Find("Widget[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Accessibility[Object]")
+                        .transform.Find("List[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Operations[Object]")
+                        .transform.Find("Manage[Object]")
+                        .transform.Find("Aisle[Object]")
+                        .transform.Find("Bin[Object]")
+                        .transform.Find("Content[Object]")
+                        .transform.Find("List[Scroll-View]")
+                        .GetComponent
+                        <ScrollRect>()
+                        .content
+                        .transform.Find("Options[Object]")
+                        .transform.Find("Audit[Button]")
+                        .GetComponent<Button>()
+                        .onClick
+                        .AddListener(() =>
+                        {
+                            // fix this later
+                        });
+
+                        Canvas
+                        .transform.Find("Widget[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Accessibility[Object]")
+                        .transform.Find("List[Object]")
+                        .transform.Find("Panel[Object]")
+                        .transform.Find("Operations[Object]")
+                        .transform.Find("Manage[Object]")
+                        .transform.Find("Aisle[Object]")
+                        .transform.Find("Bin[Object]")
+                        .transform.Find("Content[Object]")
+                        .transform.Find("List[Scroll-View]")
+                        .GetComponent
+                        <ScrollRect>()
+                        .content
+                        .transform.Find("Options[Object]")
+                        .transform.Find("Cancel[Button]")
+                        .GetComponent<Button>()
+                        .onClick
+                        .AddListener(() =>
+                        {
+                            {
+                                Transform Transform
+                                = Canvas
+                                .transform.Find("Widget[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Accessibility[Object]")
+                                .transform.Find("List[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Operations[Object]")
+                                .transform.Find("Manage[Object]")
+                                .transform.Find("Aisle[Object]")
+                                .transform.Find("Bin[Object]")
+                                .transform.Find("Content[Object]")
+                                .transform.Find("List[Scroll-View]")
+                                .GetComponent
+                                <ScrollRect>()
+                                .content
+                                .transform.Find
+                                ("Options[Object]")
+                                .transform;
+
+                                foreach (Transform _Transform
+                                in Transform)
+                                {
+                                    _Transform
+                                    .gameObject
+                                    .SetActive(false);
+                                }
+
+                                {
+                                    Transform
+                                    = Transform.Find
+                                    ("Audit[Button]")
+                                    .transform;
+
+                                    Transform
+                                    .gameObject
+                                    .SetActive(true);
+                                }
+                            }
+
+                            {
+                                // fix this later
+                            }
+                        });
+                    }
+                }
+
+                {
+                    Canvas
+                    .transform.Find("Widget[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Manage[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Bin[Object]")
+                    .transform.Find("Options[Object]")
+                    .transform.Find("Back[Button]")
+                    .GetComponent<Button>()
+                    .onClick
+                    .AddListener(() =>
+                    {
+                        Transform Transform
+                        = Canvas
+                        .transform.Find
+                        ("Widget[Object]")
+                        .transform;
+
+                        Transform
+                        .gameObject
+                        .SetActive(false);
+                    });
+                }
+            }
+
+            {
+                {
+                    {
+                        {
+                            Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Assoc[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Records[Object]")
+                            .transform.Find("Date[Object]")
+                            .transform.Find("Date[Input]")
+                            .transform.Find("Month[Input]")
+                            .transform.Find("Input[InputField]")
+                            .GetComponent
+                            <TMP_InputField>()
+                            .onValueChanged
+                            .AddListener(
+                            (value) =>
+                            {
+                                // fix this later
+                            });
+
+                            Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Assoc[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Records[Object]")
+                            .transform.Find("Date[Object]")
+                            .transform.Find("Date[Input]")
+                            .transform.Find("Day[Input]")
+                            .transform.Find("Input[InputField]")
+                            .GetComponent
+                            <TMP_InputField>()
+                            .onValueChanged
+                            .AddListener(
+                            (value) =>
+                            {
+                                // fix this later
+                            });
+
+                            Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Assoc[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Records[Object]")
+                            .transform.Find("Date[Object]")
+                            .transform.Find("Date[Input]")
+                            .transform.Find("Year[Input]")
+                            .transform.Find("Input[InputField]")
+                            .GetComponent
+                            <TMP_InputField>()
+                            .onValueChanged
+                            .AddListener(
+                            (value) =>
+                            {
+                                // fix this later
+                            });
+                        }
+
+                        {
+                            Canvas
+                            .transform.Find("Widget[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Accessibility[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Panel[Object]")
+                            .transform.Find("Operations[Object]")
+                            .transform.Find("Manage[Object]")
+                            .transform.Find("Aisle[Object]")
+                            .transform.Find("Assoc[Object]")
+                            .transform.Find("Content[Object]")
+                            .transform.Find("List[Scroll-View]")
+                            .GetComponent
+                            <ScrollRect>()
+                            .content
+                            .transform.Find("Records[Object]")
+                            .transform.Find("View[Object]")
+                            .transform.Find("Dropdown[Button]")
+                            .GetComponent<Button>()
+                            .onClick
+                            .AddListener(async ()=>
+                            {
+                                Transform Transform
+                                = Canvas
+                                .transform.Find("Widget[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Accessibility[Object]")
+                                .transform.Find("List[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Operations[Object]")
+                                .transform.Find("Manage[Object]")
+                                .transform.Find("Aisle[Object]")
+                                .transform.Find("Assoc[Object]")
+                                .transform.Find("Content[Object]")
+                                .transform.Find("List[Scroll-View]")
+                                .GetComponent
+                                <ScrollRect>()
+                                .content
+                                .transform.Find("Records[Object]")
+                                .transform.Find("View[Object]")
+                                .transform.Find("List[Object]")
+                                .transform;
+
+                                bool Boolean
+                                =! Transform
+                                .gameObject
+                                .activeSelf;
+
+                                Transform
+                                .gameObject
+                                .SetActive
+                                (Boolean);
+
+                                {
+                                    RectTransform RectTransform
+                                    = Transform.parent
+                                    .transform.Find("Dropdown[Button]")
+                                    .transform.Find("Icon[Image]")
+                                    .GetComponent
+                                    <RectTransform>();
+
+                                    Quaternion Quaternion
+                                    = RectTransform
+                                    .rotation;
+
+                                    Quaternion.z
+                                    = 0f;
+
+                                    switch (Boolean)
+                                    {
+                                        case true:
+                                            {
+                                                Quaternion.z
+                                                = 180f;
+                                            }
+                                            break;
+                                    }
+
+                                    RectTransform
+                                    .rotation
+                                    = Quaternion;
+                                }
+
+                                { 
+                                    Animator Animator
+                                    = Transform
+                                    .GetComponent
+                                    <Animator>();
+
+                                    await Animate
+                                    (Animator);
+                                }
+                            });
+
+                            {
+                                Canvas
+                                .transform.Find("Widget[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Accessibility[Object]")
+                                .transform.Find("List[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Operations[Object]")
+                                .transform.Find("Manage[Object]")
+                                .transform.Find("Aisle[Object]")
+                                .transform.Find("Assoc[Object]")
+                                .transform.Find("Content[Object]")
+                                .transform.Find("List[Scroll-View]")
+                                .GetComponent
+                                <ScrollRect>()
+                                .content
+                                .transform.Find("Records[Object]")
+                                .transform.Find("View[Object]")
+                                .transform.Find("List[Object]")
+                                .transform.Find("More[Button]")
+                                .GetComponent<Button>()
+                                .onClick
+                                .AddListener(async () =>
+                                {
+                                    // fix this later
+                                });
+
+                                {
+                                    Canvas
+                                    .transform.Find("Widget[Object]")
+                                    .transform.Find("Panel[Object]")
+                                    .transform.Find("Accessibility[Object]")
+                                    .transform.Find("List[Object]")
+                                    .transform.Find("Panel[Object]")
+                                    .transform.Find("Operations[Object]")
+                                    .transform.Find("Manage[Object]")
+                                    .transform.Find("Aisle[Object]")
+                                    .transform.Find("Assoc[Object]")
+                                    .transform.Find("Content[Object]")
+                                    .transform.Find("List[Scroll-View]")
+                                    .GetComponent
+                                    <ScrollRect>()
+                                    .content
+                                    .transform.Find("Records[Object]")
+                                    .transform.Find("View[Object]")
+                                    .transform.Find("List[Object]")
+                                    .transform.Find("Options[Object]")
+                                    .transform.Find("DataSheet[Button]")
+                                    .GetComponent<Button>()
+                                    .onClick
+                                    .AddListener(async () =>
+                                    {
+                                        // fix this later
+                                    });
+
+                                    Canvas
+                                    .transform.Find("Widget[Object]")
+                                    .transform.Find("Panel[Object]")
+                                    .transform.Find("Accessibility[Object]")
+                                    .transform.Find("List[Object]")
+                                    .transform.Find("Panel[Object]")
+                                    .transform.Find("Operations[Object]")
+                                    .transform.Find("Manage[Object]")
+                                    .transform.Find("Aisle[Object]")
+                                    .transform.Find("Assoc[Object]")
+                                    .transform.Find("Content[Object]")
+                                    .transform.Find("List[Scroll-View]")
+                                    .GetComponent
+                                    <ScrollRect>()
+                                    .content
+                                    .transform.Find("Records[Object]")
+                                    .transform.Find("View[Object]")
+                                    .transform.Find("List[Object]")
+                                    .transform.Find("Options[Object]")
+                                    .transform.Find("Cancel[Button]")
+                                    .GetComponent<Button>()
+                                    .onClick
+                                    .AddListener(async () =>
+                                    {
+                                        {
+                                            Transform Transform 
+                                            = Canvas
+                                            .transform.Find("Widget[Object]")
+                                            .transform.Find("Panel[Object]")
+                                            .transform.Find("Accessibility[Object]")
+                                            .transform.Find("List[Object]")
+                                            .transform.Find("Panel[Object]")
+                                            .transform.Find("Operations[Object]")
+                                            .transform.Find("Manage[Object]")
+                                            .transform.Find("Aisle[Object]")
+                                            .transform.Find("Assoc[Object]")
+                                            .transform.Find("Content[Object]")
+                                            .transform.Find("List[Scroll-View]")
+                                            .GetComponent
+                                            <ScrollRect>()
+                                            .content
+                                            .transform.Find("Records[Object]")
+                                            .transform.Find("View[Object]")
+                                            .transform.Find("List[Object]")
+                                            .transform.Find("Options[Object]")
+                                            .transform;
+
+                                            foreach (Transform _Transform 
+                                            in Transform)
+                                            {
+                                                _Transform
+                                                .gameObject
+                                                .SetActive(false);
+                                            }
+
+                                            {
+                                                Transform 
+                                                = Transform.Find
+                                                ("DataSheet[Button]")
+                                                .transform;
+
+                                                Transform
+                                                .gameObject
+                                                .SetActive(true);
+                                            }
+                                        }
+
+                                        {
+                                            // fix this later
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+
+                {
+                    Canvas
+                    .transform.Find("Widget[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Manage[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Assoc[Object]")
+                    .transform.Find("Options[Object]")
+                    .transform.Find("Back[Button]")
+                    .GetComponent<Button>()
+                    .onClick
+                    .AddListener(() =>
+                    {
+                        Transform Transform
+                        = Canvas
+                        .transform.Find
+                        ("Widget[Object]")
+                        .transform;
+
+                        Transform
+                        .gameObject
+                        .SetActive(false);
+                    });
+                }
+            }
+        }
+
+        await 
+        Manage();
+    }
+
+    bool Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Cancellation
+    = false;
+    private async UniTask Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Task(
+    JToken PJToken)
+    {
+        Transform Transform
+        = Canvas
+        .transform.Find("Interface[Object]")
+        .transform.Find("Accessibility[Object]")
+        .transform.Find("Panel[Object]")
+        .transform.Find("Operations[Object]")
+        .transform.Find("Inventory[Object]")
+        .transform.Find("Aisle[Object]")
+        .transform.Find("Content[Object]")
+        .transform.Find("Top[Object]")
+        .transform.Find("Right[Object]")
+        .transform.Find("List[Object]")
+        .transform.Find("Profile[Button]")
+        .transform.Find("List[Object]")
+        .transform;
+
+        switch (
+        (string)
+        PJToken
+        ["Event"])
+        {
+            case "Profile":
+                {
+                    Http Http
+                    = new Http();
+
+                    {
+                        StringBuilder StringBuilder
+                        = new StringBuilder();
+
+                        StringBuilder
+                        .Append(EndPoint);
+
+                        StringBuilder
+                        .Append("/Stream");
+
+                        string String
+                        = StringBuilder
+                        .ToString();
+
+                        Http.Url
+                        = String;
+                    }
+
+                    {
+                        JToken JToken
+                        = ManageJObject
+                        ["Credentials"]
+                        ["Associate"];
+
+                        string String
+                        = JToken
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Dictionary<string, string> Dictionary
+                        = new Dictionary<string, string>
+                        {
+                            {
+                                "Credentials",
+                                String
+                            }
+                        };
+
+                        Http
+                        .HttpHeader
+                        = Dictionary;
+                    }
+
+                    {
+                        StringBuilder StringBuilder
+                        = new StringBuilder();
+
+                        StringBuilder
+                        .Append("/Data");
+                        StringBuilder
+                        .Append("/Dir");
+                        StringBuilder
+                        .Append("/Associate/");
+
+                        StringBuilder
+                        .Append(
+                        (string)
+                        ManageJObject
+                        ["Credentials"]
+                        ["Associate"]
+                        ["UUID"]);
+
+                        StringBuilder
+                        .Append("/Photo");
+                        StringBuilder
+                        .Append("/Picture_");
+
+                        int Width
+                        = 120;
+                        int Height
+                        = 160;
+
+                        StringBuilder
+                        .Append(Width);
+                        StringBuilder
+                        .Append("x");
+                        StringBuilder
+                        .Append(Height);
+
+                        StringBuilder
+                        .Append(".jpg");
+
+                        string String
+                        = StringBuilder
+                        .ToString();
+
+                        String
+                        = new JObject
+                        {
+                            ["Info"]
+                            = new JObject
+                            {
+                                ["Path"]
+                                = String,
+
+                                ["Length"]
+                                = new
+                                JObject()
+                            }
+                        }
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Http.Form
+                        = String;
+                    }
+
+                    Http.HttpCache
+                    = Http
+                    .Cache
+                    .Never;
+
+                    Http.HttpPriority
+                    = Http
+                    .Priority
+                    .Highest;
+
+                    byte[] Bytes
+                    = await Http
+                    .PostAsync();
+
+                    bool Boolean
+                    = Bytes
+                    .Length > 0;
+
+                    switch (Boolean)
+                    {
+                        case true:
+                            {
+                                string String
+                                = Encoding.UTF8
+                                .GetString(Bytes);
+
+                                JToken JToken
+                                = JObject
+                                .Parse(String);
+
+#if UNITY_EDITOR
+                                String
+                                = JToken
+                                .ToString
+                                (Formatting
+                                .Indented);
+
+                                Debug
+                                .Log(String);
+#endif
+
+                                string Path
+                                = "Info"
+                                + ".Error";
+
+                                Boolean
+                                = JToken
+                                .SelectToken(
+                                Path,
+                                errorWhenNoMatch: false)
+                                == null;
+
+                                switch (Boolean)
+                                {
+                                    case true:
+                                        {
+                                            using (MemoryStream MemoryStream
+                                            = new MemoryStream())
+                                            {
+                                                int Delay
+                                                = 0;
+
+                                                int Incre
+                                                = 8192;
+
+                                                int Index
+                                                = 0;
+
+                                                int Length
+                                                = (int)JToken
+                                                ["Info"]
+                                                ["Length"];
+
+                                                while (true)
+                                                {
+                                                    {
+                                                        Boolean
+                                                        = Index
+                                                        >= Length;
+
+                                                        if (Boolean)
+                                                        { break; }
+                                                    }
+
+                                                    {
+                                                        {
+                                                            StringBuilder StringBuilder
+                                                            = new StringBuilder();
+
+                                                            StringBuilder
+                                                            .Append("/Data");
+                                                            StringBuilder
+                                                            .Append("/Dir");
+                                                            StringBuilder
+                                                            .Append("/Associate/");
+
+                                                            StringBuilder
+                                                            .Append(
+                                                            (string)
+                                                            ManageJObject
+                                                            ["Credentials"]
+                                                            ["Associate"]
+                                                            ["UUID"]);
+
+                                                            StringBuilder
+                                                            .Append("/Photo");
+                                                            StringBuilder
+                                                            .Append("/Picture_");
+
+                                                            int Width
+                                                            = 120;
+                                                            int Height
+                                                            = 160;
+
+                                                            StringBuilder
+                                                            .Append(Width);
+                                                            StringBuilder
+                                                            .Append("x");
+                                                            StringBuilder
+                                                            .Append(Height);
+
+                                                            StringBuilder
+                                                            .Append(".jpg");
+
+                                                            String
+                                                            = StringBuilder
+                                                            .ToString();
+
+                                                            String
+                                                            = new JObject
+                                                            {
+                                                                ["Data"]
+                                                                = new JObject
+                                                                {
+                                                                    ["Path"]
+                                                                    = String,
+
+                                                                    ["Offset"]
+                                                                    = Index,
+
+                                                                    ["Columns"]
+                                                                    = Incre,
+                                                                }
+                                                            }
+                                                            .ToString(
+                                                            Formatting
+                                                            .None);
+
+                                                            Http.Form
+                                                            = String;
+                                                        }
+
+                                                        {
+                                                            Bytes
+                                                            = await Http
+                                                            .PostAsync();
+
+                                                            Boolean
+                                                            = Bytes
+                                                            .Length
+                                                            == 0;
+
+                                                            if (Boolean)
+                                                            { break; }
+                                                        }
+
+                                                        {
+                                                            await MemoryStream
+                                                            .WriteAsync(Bytes);
+
+                                                            Index
+                                                            += Incre;
+                                                        }
+                                                    }
+
+                                                    {
+                                                        if (++Delay % 100 == 0)
+                                                        {
+                                                            await UniTask
+                                                            .Yield(
+                                                            PlayerLoopTiming
+                                                            .Update);
+                                                        }
+                                                    }
+                                                }
+
+                                                {
+                                                    Boolean
+                                                    = Index
+                                                    >= Length;
+
+                                                    switch (Boolean)
+                                                    {
+                                                        case true:
+                                                            {
+                                                                {
+                                                                    Bytes
+                                                                    = MemoryStream
+                                                                    .ToArray();
+                                                                }
+
+                                                                {
+                                                                    Texture2D Texture2D
+                                                                    = new Texture2D(0, 0);
+
+                                                                    Texture2D
+                                                                    .LoadImage
+                                                                    (Bytes);
+
+                                                                    {
+                                                                        Transform
+                                                                        .Find("Picture[Object]")
+                                                                        .transform.Find("Mask[Image]")
+                                                                        .transform.Find("Picture[RawImage]")
+                                                                        .GetComponent<RawImage>()
+                                                                        .texture
+                                                                        = Texture2D;
+                                                                    }
+
+                                                                    {
+                                                                        Canvas
+                                                                        .transform.Find("Widget[Object]")
+                                                                        .transform.Find("Panel[Object]")
+                                                                        .transform.Find("Accessibility[Object]")
+                                                                        .transform.Find("List[Object]")
+                                                                        .transform.Find("Panel[Object]")
+                                                                        .transform.Find("Operations[Object]")
+                                                                        .transform.Find("Manage[Object]")
+                                                                        .transform.Find("Aisle[Object]")
+                                                                        .transform.Find("Assoc[Object]")
+                                                                        .transform.Find("Content[Object]")
+                                                                        .transform.Find("List[Scroll-View]")
+                                                                        .GetComponent
+                                                                        <ScrollRect>()
+                                                                        .content
+                                                                        .transform.Find("Profile[Object]")
+                                                                        .transform.Find("Picture[Object]")
+                                                                        .transform.Find("Mask[Image]")
+                                                                        .transform.Find("Picture[RawImage]")
+                                                                        .GetComponent<RawImage>()
+                                                                        .texture
+                                                                        = Texture2D;
+                                                                    }
+                                                                }
+                                                            }
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        break;
+                                }
+                            }
+                            break;
+                    }
+                }
+                break;
+            case "Info":
+                {
+                    Http Http
+                    = new Http();
+
+                    {
+                        StringBuilder StringBuilder
+                        = new StringBuilder();
+
+                        StringBuilder
+                        .Append(EndPoint);
+
+                        StringBuilder
+                        .Append("/Request");
+
+                        string String
+                        = StringBuilder
+                        .ToString();
+
+                        Http.Url
+                        = String;
+                    }
+
+                    {
+                        JToken JToken
+                        = ManageJObject
+                        ["Credentials"]
+                        ["Associate"];
+
+                        string String
+                        = JToken
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Dictionary<string, string> Dictionary
+                        = new Dictionary<string, string>
+                        {
+                            {
+                                "Credentials",
+                                String
+                            }
+                        };
+
+                        Http
+                        .HttpHeader
+                        = Dictionary;
+                    }
+
+                    {
+                        string String
+                        = new JObject
+                        {
+                            ["Associate"]
+                            = new JObject
+                            {
+                                ["UUID"]
+                                = (string)
+                                ManageJObject
+                                ["Credentials"]
+                                ["Associate"]
+                                ["UUID"],
+
+                                ["Name"]
+                                = new
+                                JObject(),
+
+                                ["Alias"]
+                                = new
+                                JObject(),
+
+                                ["Role"]
+                                = new
+                                JObject()
+                            }
+                        }
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Http.Form
+                        = String;
+                    }
+
+                    Http.HttpCache
+                    = Http
+                    .Cache
+                    .Never;
+
+                    Http.HttpPriority
+                    = Http
+                    .Priority
+                    .Highest;
+
+                    byte[] Bytes
+                    = await Http
+                    .PostAsync();
+
+                    bool Boolean
+                    = Bytes
+                    .Length > 0;
+
+                    switch (Boolean)
+                    {
+                        case true:
+                            {
+                                string String
+                                = Encoding.UTF8
+                                .GetString(Bytes);
+
+                                switch (Boolean)
+                                {
+                                    case true:
+                                        {
+                                            JToken JToken
+                                            = JObject
+                                            .Parse(String);
+
+#if UNITY_EDITOR
+                                            String
+                                            = JToken
+                                            .ToString
+                                            (Formatting
+                                            .Indented);
+
+                                            Debug
+                                            .Log(String);
+#endif
+
+                                            string Path
+                                            = "Associate"
+                                            + ".Error";
+
+                                            Boolean
+                                            = JToken
+                                            .SelectToken(
+                                            Path,
+                                            errorWhenNoMatch: false)
+                                            == null;
+
+                                            switch (Boolean)
+                                            {
+                                                case true:
+                                                    {
+                                                        {
+                                                            Transform.Find("Rect[Object]")
+                                                            .transform.Find("Title[Text]")
+                                                            .GetComponent<TextMeshProUGUI>()
+                                                            .text
+                                                            = (string)
+                                                            JToken
+                                                            ["Associate"]
+                                                            ["Name"];
+
+                                                            {
+                                                                StringBuilder StringBuilder
+                                                                = new StringBuilder();
+
+                                                                StringBuilder
+                                                                .Append("@");
+
+                                                                StringBuilder
+                                                                .Append(
+                                                                (string)
+                                                                JToken
+                                                                ["Associate"]
+                                                                ["Alias"]);
+
+                                                                String
+                                                                = StringBuilder
+                                                                .ToString();
+
+                                                                Transform.Find("Rect[Object]")
+                                                                .transform.Find("Label[Text]")
+                                                                .GetComponent<TextMeshProUGUI>()
+                                                                .text
+                                                                = String;
+                                                            }
+                                                        }
+
+                                                        {
+                                                            Transform 
+                                                            = Canvas
+                                                            .transform.Find("Widget[Object]")
+                                                            .transform.Find("Panel[Object]")
+                                                            .transform.Find("Accessibility[Object]")
+                                                            .transform.Find("List[Object]")
+                                                            .transform.Find("Panel[Object]")
+                                                            .transform.Find("Operations[Object]")
+                                                            .transform.Find("Manage[Object]")
+                                                            .transform.Find("Aisle[Object]")
+                                                            .transform.Find("Assoc[Object]")
+                                                            .transform.Find("Content[Object]")
+                                                            .transform.Find("List[Scroll-View]")
+                                                            .GetComponent
+                                                            <ScrollRect>()
+                                                            .content
+                                                            .transform.Find("Profile[Object]")
+                                                            .transform.Find("Rect[Object]")
+                                                            .transform.Find("List[Object]")
+                                                            .transform;
+
+                                                            {
+                                                                Transform.Find
+                                                                ("Title[Text]")
+                                                                .GetComponent
+                                                                <TextMeshProUGUI>()
+                                                                .text
+                                                                = (string)
+                                                                JToken
+                                                                ["Associate"]
+                                                                ["Name"];
+
+                                                                {
+                                                                    StringBuilder StringBuilder
+                                                                    = new StringBuilder();
+
+                                                                    StringBuilder
+                                                                    .Append("@");
+
+                                                                    StringBuilder
+                                                                    .Append(
+                                                                    (string)
+                                                                    JToken
+                                                                    ["Associate"]
+                                                                    ["Alias"]);
+
+                                                                    String
+                                                                    = StringBuilder
+                                                                    .ToString();
+
+                                                                    Transform.Find
+                                                                    ("Label[Text]")
+                                                                    .GetComponent
+                                                                    <TextMeshProUGUI>()
+                                                                    .text
+                                                                    = String;
+                                                                }
+
+                                                                Transform.Find
+                                                                ("Text[Text]")
+                                                                .GetComponent
+                                                                <TextMeshProUGUI>()
+                                                                .text
+                                                                = (string)
+                                                                JToken
+                                                                ["Associate"]
+                                                                ["Role"];
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                        break;
+                                }
+                            }
+                            break;
+                    }
+                }
+                break;
         }
     }
 
