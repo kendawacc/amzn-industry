@@ -1,0 +1,196 @@
+Problems
+----------------------------------------------------------------------------
+
+Url: https://qi-fcresearch-na.corp.amazon.com/JWY3/results/problems
+Method: POST
+Form Data: 
+Key=s 
+Value=paXPBTPN663
+
+Data:
+<div class="a-box-group a-spacing-large a-spacing-top-medium">
+    <div class="a-box a-first a-box-title">
+        <div class="a-box-inner">
+            <div class="a-row">
+                <div class="a-column a-span8">
+                    <span class="a-size-large section-title a-text-bold">Problem</span>
+                    <span class="help">
+                        <span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;false&quot;,&quot;position&quot;:&quot;triggerRight&quot;,&quot;url&quot;:&quot;/s/help?i=problems&quot;}">
+                            <i class="s-icon s-icon-info"></i>
+                        </span>
+                    </span>
+                </div>
+                <div class="a-column a-span4 a-text-right filter a-span-last">
+                    <span class="filters-popover">
+                        <span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;true&quot;,&quot;name&quot;:&quot;filters-problems-popover&quot;,&quot;activate&quot;:&quot;onclick&quot;,&quot;header&quot;:&quot;Advanced Filters&quot;,&quot;position&quot;:&quot;triggerBottom&quot;}">
+                            <i class="p-icon">&nbsp;</i>
+                        </span>
+                    </span>
+                    <div class="a-popover-preload" id="a-popover-filters-problems-popover">
+                        <div class="a-box a-last advanced-filters">
+                            <div class="a-box-inner">
+                                <table class="a-keyvalue a-horizontal-stripes a-search">
+                                    <tbody>
+                                        <tr data-col="problems-problem-id">
+                                            <th>Problem Id</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-location">
+                                            <th>Location</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-creator">
+                                            <th>Creator</th>
+                                            <td>
+                                                <div class="filters-select">
+                                                    <select class="a-input-text">
+                                                        <option value=""/>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-status">
+                                            <th>Status </th>
+                                            <td>
+                                                <div class="filters-select">
+                                                    <select class="a-input-text">
+                                                        <option value=""/>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-creation-date">
+                                            <th>Creation Date</th>
+                                            <td>
+                                                <div class="filters-date-range dataTables_date_filter a-search">
+                                                    <i class="a-icon a-icon-calendar a-icon-small"/>
+                                                    <label>
+                                                        <input class="from" type="text"/>
+                                                    </label>
+                                                    <label>
+                                                        <input class="to" type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-created-by">
+                                            <th> Created By</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr data-col="problems-symptoms">
+                                            <th>Symptoms</th>
+                                            <td>
+                                                <div class="filters-input">
+                                                    <label>
+                                                        <input type="text"/>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-box a-last">
+        <div class="a-box-inner">
+            <table id="table-problems" class="a-bordered a-horizontal-stripes">
+                <thead>
+                    <tr>
+                        <th id="problems-problem-id">Problem Id</th>
+                        <th id="problems-location">Location</th>
+                        <th id="problems-creator">Creator</th>
+                        <th id="problems-status">Status</th>
+                        <th id="problems-creation-date">Creation Date</th>
+                        <th id="problems-created-by">Created By</th>
+                        <th id="problems-symptoms">Symptoms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-row-id="JWY3.AFTPoirotWebsite.27b8bd60-9736-4ed6-a24a-7fd7c1f7b932">
+                        <td>
+                            <a href="/JWY3/results?s=JWY3.AFTPoirotWebsite.27b8bd60-9736-4ed6-a24a-7fd7c1f7b932">JWY3.AFTPoirotWebsite.27b8bd60-9736-4ed6-a24a-7fd7c1f7b932</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=paXPBTPN663">paXPBTPN663</a>
+                        </td>
+                        <td>Quality Tool</td>
+                        <td>Resolved</td>
+                        <td class="timestamp">Wed Oct 28 17:03:08 UTC 2026</td>
+                        <td>
+                            <a href="/JWY3/results?s=lawbethe">lawbethe</a>
+                        </td>
+                        <td>Shortage</td>
+                    </tr>
+                    <tr data-row-id="amzn1.fc.v1.common.request-id.v1.CreateGeneralShortageChildWorkflows.ba54c8380d4feee2877379ad74ba9a86e01985b894cc49d4c709139a00c88159.GeneralShortageChildGroup.null-EOF">
+                        <td>
+                            <a href="/JWY3/results?s=amzn1.fc.v1.common.request-id.v1.CreateGeneralShortageChildWorkflows.ba54c8380d4feee2877379ad74ba9a86e01985b894cc49d4c709139a00c88159.GeneralShortageChildGroup.null-EOF">amzn1.fc.v1.common.request-id.v1.CreateGeneralShortageChildWorkflows.ba54c8380d4feee2877379ad74ba9a86e01985b894cc49d4c709139a00c88159.GeneralShortageChildGroup.null-EOF</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=paXPBTPN663">paXPBTPN663</a>
+                        </td>
+                        <td>General Shortage</td>
+                        <td>Resolved</td>
+                        <td class="timestamp">Wed Oct 28 17:03:09 UTC 2026</td>
+                        <td>
+                            <a href="/JWY3/results?s=aft-ps">aft-ps</a>
+                        </td>
+                        <td>Shortage</td>
+                    </tr>
+                    <tr data-row-id="JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb">
+                        <td>
+                            <a href="/JWY3/results?s=JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb">JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=paXPBTPN663">paXPBTPN663</a>
+                        </td>
+                        <td>Quality Tool</td>
+                        <td>Resolved</td>
+                        <td class="timestamp">Thu Oct 29 03:22:48 UTC 2026</td>
+                        <td>
+                            <a href="/JWY3/results?s=sydnhona">sydnhona</a>
+                        </td>
+                        <td>Unexpected Item Overage</td>
+                    </tr>
+                    <tr data-row-id="JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb.GeneralAdjustReceiveToolOverageChildGroup.null-EOF">
+                        <td>
+                            <a href="/JWY3/results?s=JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb.GeneralAdjustReceiveToolOverageChildGroup.null-EOF">JWY3.AFTPoirotWebsite.20effa69-cff6-4e24-bcc7-52cfdcca10cb.GeneralAdjustReceiveToolOverageChildGroup.null-EOF</a>
+                        </td>
+                        <td>
+                            <a href="/JWY3/results?s=paXPBTPN663">paXPBTPN663</a>
+                        </td>
+                        <td>General Overage</td>
+                        <td>Resolved</td>
+                        <td class="timestamp">Thu Oct 29 03:24:50 UTC 2026</td>
+                        <td>
+                            <a href="/JWY3/results?s=aft-ps">aft-ps</a>
+                        </td>
+                        <td>Unexpected Item Overage</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

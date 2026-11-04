@@ -1,0 +1,30 @@
+Bin Inspection
+
+Scan every bin within each aisle.
+
+Scenario 1 — Empty Bin
+
+1. If a bin is empty, record the bin as Empty along with the current date.
+2. Check the bin’s previous inspection records.
+3. If the bin has remained empty for 2 or more consecutive days, flag the bin for review.
+
+Scenario 2 — Bin Contains a Container
+
+1. If a bin contains a container, retrieve and inspect the container’s properties.
+2. Continue to the Container Inspection process.
+
+---
+
+Container Inspection
+
+Inspect the properties of the container located within the selected bin.
+
+Scenario 1 — Empty Container
+
+1. If the container is empty, flag the container.
+2. Create a report identifying the container as a potential problem.
+
+Scenario 2 — Container Has a Problem
+
+1. If a problem is detected, attach the issue to the affected container.
+2. Add the problem to the container’s Problem List using the appropriate symptom name.

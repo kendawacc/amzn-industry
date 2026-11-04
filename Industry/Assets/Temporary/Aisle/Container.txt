@@ -1,0 +1,369 @@
+Container
+----------------------------------------------------------------------------
+
+Url: https://qi-fcresearch-na.corp.amazon.com/JWY3/results/container-hierarchy
+Method: POST
+Form Data: 
+Key=s 
+Value=paXPBTHT2F6
+
+Data:
+<div class="a-box-group a-spacing-large a-spacing-top-medium"><div class="a-box a-first a-box-title"><div class="a-box-inner"><div class="a-row"><div class="a-column a-span12"><span class="a-size-large section-title a-text-bold">Container Details</span><span class="help"><span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;false&quot;,&quot;position&quot;:&quot;triggerRight&quot;,&quot;url&quot;:&quot;/s/help?i=container-hierarchy&quot;}"><i class="s-icon s-icon-info"></i></span></span></div></div></div></div><div class="a-box a-last"><div class="a-box-inner"><span class="a-size-base section-title a-text-bold">Container Hierarchy:</span><ul class="a-unordered-list a-nostyle a-horizontal a-spacing-base"><li><span class="a-list-item"><a class="a-link-normal" href="/JWY3/results?s=P-1-A152E145">P-1-A152E145</a><div class="a-popover-preload" id="a-popover-container-info"><ul class="a-unordered-list a-nostyle a-vertical"><li><span class="a-list-item"><dt class="a-list-item">Container Id</dt><dd class="a-list-item">1053876</dd></span></li><li><span class="a-list-item"><dt class="a-list-item">Container Type</dt><dd class="a-list-item">RESERVE_BIN_FORWARD</dd></span></li></ul></div><span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;closeButton&quot;:&quot;false&quot;,&quot;name&quot;:&quot;container-info&quot;,&quot;header&quot;:&quot;Container Details&quot;}"><a href="javascript:void(0)" role="button" class="a-popover-trigger a-declarative"><i class="a-icon a-icon-popover"></i></a></span></span></li><li><span class="a-list-item">></span></li><li><span class="a-list-item"><span class="a-text-bold">paXPBTHT2F6</span><div class="a-popover-preload" id="a-popover-container-info"><ul class="a-unordered-list a-nostyle a-vertical"><li><span class="a-list-item"><dt class="a-list-item">Container Id</dt><dd class="a-list-item">35326557</dd></span></li><li><span class="a-list-item"><dt class="a-list-item">Container Type</dt><dd class="a-list-item">PALLET</dd></span></li></ul></div><span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;closeButton&quot;:&quot;false&quot;,&quot;name&quot;:&quot;container-info&quot;,&quot;header&quot;:&quot;Container Details&quot;}"><a href="javascript:void(0)" role="button" class="a-popover-trigger a-declarative"><i class="a-icon a-icon-popover"></i></a></span></span></li><li><span class="a-list-item"></span></li></ul><div class="a-row"><div class="a-column a-span12"><div id="child-containers" class="a-box-group a-spacing-base"><div class="a-box a-first a-box-title"><div class="a-box-inner"><div class="a-row"><div class="a-column a-span8"><span class="a-size-medium a-text-bold">Child Containers</span></div><div class="a-column a-span4 a-text-right filter a-span-last"><span class="filters-popover"><span class="a-declarative" data-action="a-popover" data-a-popover="{&quot;max-width&quot;:&quot;70%&quot;,&quot;closeButton&quot;:&quot;true&quot;,&quot;name&quot;:&quot;filters-container-hierarchy-popover&quot;,&quot;activate&quot;:&quot;onclick&quot;,&quot;header&quot;:&quot;Advanced Filters&quot;,&quot;position&quot;:&quot;triggerBottom&quot;}"><i class="p-icon">&nbsp;</i></span></span><div class="a-popover-preload" id="a-popover-filters-container-hierarchy-popover"><div class="a-box a-last advanced-filters"><div class="a-box-inner"><table class="a-keyvalue a-horizontal-stripes a-search"><tbody><tr data-col="child-containers-scannable-id"><th>Scannable ID</th><td><div class="filters-input"><label><input type="text"/></label></div></td></tr><tr data-col="child-containers-type"><th>Type</th><td><div class="filters-select"><select class="a-input-text"><option value=""/></select></div></td></tr></tbody></table></div></div></div></div></div></div></div><div class="a-box a-last"><div class="a-box-inner"><table id="table-container-hierarchy" data-sort-col="0" class="a-bordered a-horizontal-stripes"><thead><tr><th id="child-containers-scannable-id" class="a-span4 a-text-center">
+              Scannable ID
+            </th><th id="child-containers-type" class="a-span4 a-text-center">
+              Type
+            </th><th id="container-direct-qty" data-func="sum" class="a-span4 a-text-center">
+                Quantity
+              </th></tr></thead><tbody><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325155">35325155</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325156">35325156</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325215">35325215</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325216">35325216</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325217">35325217</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325233">35325233</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325234">35325234</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325235">35325235</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325236">35325236</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325712">35325712</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35325713">35325713</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326093">35326093</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326094">35326094</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326129">35326129</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326130">35326130</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326131">35326131</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326132">35326132</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326146">35326146</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326147">35326147</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326166">35326166</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326167">35326167</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326168">35326168</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326169">35326169</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326170">35326170</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326188">35326188</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326189">35326189</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326190">35326190</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326213">35326213</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326214">35326214</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326215">35326215</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326237">35326237</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326317">35326317</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326327">35326327</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326328">35326328</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326497">35326497</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326566">35326566</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326567">35326567</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326568">35326568</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326614">35326614</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326615">35326615</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326616">35326616</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326617">35326617</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326631">35326631</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326632">35326632</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326747">35326747</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326817">35326817</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326867">35326867</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35326868">35326868</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327006">35327006</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327007">35327007</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327008">35327008</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327124">35327124</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327125">35327125</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327126">35327126</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327264">35327264</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327324">35327324</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327325">35327325</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327326">35327326</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327327">35327327</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327360">35327360</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327361">35327361</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327362">35327362</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327422">35327422</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327423">35327423</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327461">35327461</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327462">35327462</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327463">35327463</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327499">35327499</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327500">35327500</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327559">35327559</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327560">35327560</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327561">35327561</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327578">35327578</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327579">35327579</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327580">35327580</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327581">35327581</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327598">35327598</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327599">35327599</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327600">35327600</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327618">35327618</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327619">35327619</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327638">35327638</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327639">35327639</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327640">35327640</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327658">35327658</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327659">35327659</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327660">35327660</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr><tr class="a-text-center"><td><a class="a-link-normal" href="/JWY3/results?s=35327678">35327678</a></td><td>
+                CASE
+              </td><td>
+                  6
+                </td></tr></tbody></table></div></div></div></div></div></div></div></div>
