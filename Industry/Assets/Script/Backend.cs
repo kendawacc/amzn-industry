@@ -58099,8 +58099,9 @@ public class Backend : MonoBehaviour
                     .GetComponent<ScrollView>()
                     .Func += async(
                     object PObject, 
-                    GameObject 
-                    PGameObject) =>
+                    GameObject
+                    PGameObject,
+                    Boolean isReverse) =>
                     {
                         Transform Transform
                         = Canvas
@@ -58167,22 +58168,55 @@ public class Backend : MonoBehaviour
                                 (1, 1, 1);
 
                                 {
-                                    Transform
-                                    = Transform.Find
-                                    ("Progress[Object]")
-                                    .transform;
+                                    switch (isReverse)
+                                    {
+                                        case true:
+                                        {
+                                            Transform
+                                            = Transform.Find
+                                            ("Template[Button]")
+                                            .transform;
 
-                                    int Index
-                                    = Transform
-                                    .GetSiblingIndex();
+                                            int Index
+                                            = Transform
+                                            .GetSiblingIndex();
 
-                                    GameObject
-                                    .transform
-                                    .SetSiblingIndex
-                                    (Index);
+                                            Index
+                                            ++;
 
-                                    Transform
-                                    .SetAsLastSibling();
+                                            GameObject
+                                            .transform
+                                            .SetSiblingIndex
+                                            (Index);
+
+                                            Transform
+                                            .SetAsFirstSibling();
+                                        }
+                                        break;
+                                        case false:
+                                        {
+                                            Transform
+                                            = Transform.Find
+                                            ("Progress[Object]")
+                                            .transform;
+
+                                            int Index
+                                            = Transform
+                                            .GetSiblingIndex();
+
+                                            Index
+                                            --;
+
+                                            GameObject
+                                            .transform
+                                            .SetSiblingIndex
+                                            (Index);
+
+                                            Transform
+                                            .SetAsLastSibling();
+                                        }
+                                        break;
+                                    }
                                 }
 
                                 {
@@ -59221,7 +59255,7 @@ public class Backend : MonoBehaviour
 
         ScrollView
         .Rows
-        = 4;
+        = 12;
 
         Transform
         = Transform
