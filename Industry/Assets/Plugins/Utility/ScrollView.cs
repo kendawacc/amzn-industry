@@ -7,12 +7,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
  
 using Cysharp.Threading.Tasks;
- 
+
 public class ScrollView : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
     private const float Edge
     = 0.001f;
  
+    [HideInInspector]
     private bool Ready
     = false;
     private bool Wait
@@ -43,10 +44,10 @@ public class ScrollView : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     // Func(item, row, up) fills the row with the item.
     // up is true when the row is added above the others.
     // The row is inactive when Func is called, so Func has to activate it.
-    public Func<object, GameObject, Boolean, UniTask> Func;
+    public Func<object, GameObject, Boolean, ScrollView, UniTask> Func;
  
     private ScrollRect ScrollRect;
-    private RectTransform Content;
+    public RectTransform Content;
     private Transform Template;
     private CancellationToken Destroyed;
  
@@ -430,7 +431,8 @@ public class ScrollView : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             await Func(
             Keys[Index],
             View,
-            PUp);
+            PUp,
+            this);
  
             if (KeepPosition
             && Anchor != null)
