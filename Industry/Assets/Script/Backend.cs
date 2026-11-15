@@ -57919,75 +57919,8 @@ public class Backend : MonoBehaviour
                     .onClick
                     .AddListener(async() =>
                     {
-                        Transform Transform
-                        = Canvas
-                        .transform.Find("Interface[Object]")
-                        .transform.Find("Accessibility[Object]")
-                        .transform.Find("Panel[Object]")
-                        .transform.Find("Operations[Object]")
-                        .transform.Find("Inventory[Object]")
-                        .transform.Find("Aisle[Object]")
-                        .transform.Find("Content[Object]")
-                        .transform.Find("Top[Object]")
-                        .transform.Find("Left[Object]")
-                        .transform.Find("List[Object]")
-                        .transform.Find("Options[Object]")
-                        .transform.Find("Floor[Object]")
-                        .transform.Find("List[Object]")
-                        .transform;
-
-                        bool Boolean
-                        =! Transform
-                        .gameObject
-                        .activeSelf;
-
-                        Transform
-                        .gameObject
-                        .SetActive
-                        (Boolean);
-
                         {
-                            RectTransform RectTransform
-                            = Transform.parent
-                            .transform.Find("Dropdown[Button]")
-                            .transform.Find("Icon[Image]")
-                            .GetComponent
-                            <RectTransform>();
-
-                            Quaternion Quaternion
-                            = RectTransform
-                            .rotation;
-
-                            Quaternion.z
-                            = 0f;
-
-                            switch (Boolean)
-                            {
-                                case true:
-                                    {
-                                        Quaternion.z
-                                        = 180f;
-                                    }
-                                    break;
-                            }
-
-                            RectTransform
-                            .rotation
-                            = Quaternion;
-                        }
-
-                       { 
-                            Animator Animator
-                            = Transform
-                            .GetComponent
-                            <Animator>();
-
-                            await Animate
-                            (Animator);
-                       }
-
-                        {
-                            Transform
+                            Transform Transform
                             = Canvas
                             .transform.Find("Interface[Object]")
                             .transform.Find("Accessibility[Object]")
@@ -57996,42 +57929,111 @@ public class Backend : MonoBehaviour
                             .transform.Find("Inventory[Object]")
                             .transform.Find("Aisle[Object]")
                             .transform.Find("Content[Object]")
-                            .transform.Find("Center[Object]")
+                            .transform.Find("Top[Object]")
+                            .transform.Find("Left[Object]")
+                            .transform.Find("List[Object]")
+                            .transform.Find("Options[Object]")
+                            .transform.Find("Floor[Object]")
+                            .transform.Find("List[Object]")
                             .transform;
 
-                            {
-                                CanvasGroup CanvasGroup
-                                = Transform
-                                .GetComponent
-                                <CanvasGroup>();
+                            bool Boolean
+                            =! Transform
+                            .gameObject
+                            .activeSelf;
 
-                                float Float
-                                = 1f;
+                            Transform
+                            .gameObject
+                            .SetActive
+                            (Boolean);
+
+                            {
+                                RectTransform RectTransform
+                                = Transform.parent
+                                .transform.Find("Dropdown[Button]")
+                                .transform.Find("Icon[Image]")
+                                .GetComponent
+                                <RectTransform>();
+
+                                Quaternion Quaternion
+                                = RectTransform
+                                .rotation;
+
+                                Quaternion.z
+                                = 0f;
 
                                 switch (Boolean)
                                 {
                                     case true:
                                         {
-                                            Float
-                                            = 0.5f;
+                                            Quaternion.z
+                                            = 180f;
                                         }
                                         break;
                                 }
 
-                                CanvasGroup
-                                .alpha
-                                =  Float;
+                                RectTransform
+                                .rotation
+                                = Quaternion;
                             }
 
-                            {
-                                GraphicRaycaster GraphicRaycaster
+                        { 
+                                Animator Animator
                                 = Transform
                                 .GetComponent
-                                <GraphicRaycaster>();
+                                <Animator>();
 
-                                GraphicRaycaster
-                                .enabled
-                                =! Boolean;
+                                await Animate
+                                (Animator);
+                        }
+
+                            {
+                                Transform
+                                = Canvas
+                                .transform.Find("Interface[Object]")
+                                .transform.Find("Accessibility[Object]")
+                                .transform.Find("Panel[Object]")
+                                .transform.Find("Operations[Object]")
+                                .transform.Find("Inventory[Object]")
+                                .transform.Find("Aisle[Object]")
+                                .transform.Find("Content[Object]")
+                                .transform.Find("Center[Object]")
+                                .transform;
+
+                                {
+                                    CanvasGroup CanvasGroup
+                                    = Transform
+                                    .GetComponent
+                                    <CanvasGroup>();
+
+                                    float Float
+                                    = 1f;
+
+                                    switch (Boolean)
+                                    {
+                                        case true:
+                                            {
+                                                Float
+                                                = 0.5f;
+                                            }
+                                            break;
+                                    }
+
+                                    CanvasGroup
+                                    .alpha
+                                    =  Float;
+                                }
+
+                                {
+                                    GraphicRaycaster GraphicRaycaster
+                                    = Transform
+                                    .GetComponent
+                                    <GraphicRaycaster>();
+
+                                    GraphicRaycaster
+                                    .enabled
+                                    =! Boolean;
+                                }
                             }
                         }
                     });
@@ -58223,6 +58225,19 @@ public class Backend : MonoBehaviour
                                     .onClick
                                     .AddListener(async() =>
                                     {
+                                        {
+                                            String
+                                            = (string)
+                                            PObject;
+                                    
+                                            JToken JToken
+                                            = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JObject;
+                                            
+                                            JToken
+                                            ["Floor"]
+                                            = String;
+                                        }
+
                                         {
                                             Transform Transform
                                             = Canvas
@@ -58620,6 +58635,19 @@ public class Backend : MonoBehaviour
                                 .onClick
                                 .AddListener(async ()=>
                                 {
+                                    {
+                                        String
+                                        = (string)
+                                        PObject;
+
+                                        JToken JToken
+                                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JObject;
+
+                                        JToken
+                                        ["Aisle"]
+                                        = String;
+                                    }
+
                                     {
                                         Transform Transform
                                         = GameObject
@@ -59259,6 +59287,20 @@ public class Backend : MonoBehaviour
                                                                 .AddListener(async ()=>
                                                                 {
                                                                     {
+                                                                        string String
+                                                                        = (string)
+                                                                        JToken
+                                                                        ["Key"];
+
+                                                                        JToken _JToken
+                                                                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JObject;
+
+                                                                        _JToken
+                                                                        ["Bin"]
+                                                                        = String;
+                                                                    }
+
+                                                                    {
                                                                         Transform Transform
                                                                         = Canvas
                                                                         .transform.Find
@@ -59300,40 +59342,80 @@ public class Backend : MonoBehaviour
                                                                                     = Transform.Find("Manage[Object]")
                                                                                     .transform.Find("Aisle[Object]")
                                                                                     .transform;
-
-                                                                                    foreach (Transform _Transform
-                                                                                    in Transform)
+                                                                                
                                                                                     {
-                                                                                        _Transform
-                                                                                        .gameObject
-                                                                                        .SetActive(false);
+                                                                                        foreach (Transform _Transform
+                                                                                        in Transform)
+                                                                                        {
+                                                                                            _Transform
+                                                                                            .gameObject
+                                                                                            .SetActive(false);
+                                                                                        }
+
+                                                                                        {
+                                                                                            Transform
+                                                                                            = Transform.Find
+                                                                                            ("Progress[Object]")
+                                                                                            .transform;
+
+                                                                                            Transform
+                                                                                            .gameObject
+                                                                                            .SetActive(true);
+
+                                                                                            Animator Animator
+                                                                                            = Transform
+                                                                                            .GetComponent
+                                                                                            <Animator>();
+
+                                                                                            await Animate
+                                                                                            (Animator);
+                                                                                        }
                                                                                     }
 
                                                                                     {
-                                                                                        Transform
-                                                                                        = Transform.Find
-                                                                                        ("Progress[Object]")
-                                                                                        .transform;
+                                                                                        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation
+                                                                                        = true;
 
-                                                                                        Transform
-                                                                                        .gameObject
-                                                                                        .SetActive(true);
+                                                                                        await 
+                                                                                        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
+                                                                                        new JObject
+                                                                                        {
+                                                                                            ["Event"]
+                                                                                            = "Info"
+                                                                                        });
+                                                                                    }
 
-                                                                                        Animator Animator
-                                                                                        = Transform
-                                                                                        .GetComponent
-                                                                                        <Animator>();
+                                                                                    {
+                                                                                        foreach (Transform _Transform
+                                                                                        in Transform)
+                                                                                        {
+                                                                                            _Transform
+                                                                                            .gameObject
+                                                                                            .SetActive(false);
+                                                                                        }
 
-                                                                                        await Animate
-                                                                                        (Animator);
+                                                                                        {
+                                                                                            Transform
+                                                                                            = Transform.Find
+                                                                                            ("Bin[Object]")
+                                                                                            .transform;
+
+                                                                                            Transform
+                                                                                            .gameObject
+                                                                                            .SetActive(true);
+
+                                                                                            Animator Animator
+                                                                                            = Transform
+                                                                                            .GetComponent
+                                                                                            <Animator>();
+
+                                                                                            await Animate
+                                                                                            (Animator);
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }
                                                                         }
-                                                                    }
-
-                                                                    {
-                                                                        // fix this later
                                                                     }
                                                                 });
                                                             }
@@ -62368,6 +62450,85 @@ public class Backend : MonoBehaviour
                             break;
                         }
                     }
+            }
+            break;
+        }
+    }
+
+    // Test
+    bool Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation
+    = false;
+    JObject Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JObject
+    = new JObject
+    {
+        ["Floor"]
+        = String
+        .Empty,
+
+        ["Aisle"]
+        = String
+        .Empty,
+
+        ["Bin"]
+        = String
+        .Empty
+    };
+    private async UniTask Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
+    JToken PJToken)
+    {
+        // here
+        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation
+        = false;
+
+        Transform Transform
+        = Canvas
+        .transform.Find("Widget[Object]")
+        .transform.Find("Accessibility[Object]")
+        .transform.Find("List[Object]")
+        .transform.Find("Panel[Object]")
+        .transform.Find("Operations[Object]")
+        .transform.Find("Manage[Object]")
+        .transform.Find("Aisle[Object]")
+        .transform.Find("Bin[Object]")
+        .transform.Find("Content[Object]")
+        .transform.Find("List[Scroll-View]")
+        .GetComponent<ScrollRect>()
+        .content
+        .transform;
+
+        switch (
+        (string)
+        PJToken
+        ["Event"])
+        {
+            case "Info":
+            {
+                StringBuilder StringBuilder
+                = new StringBuilder();
+
+                {
+                    
+                }
+            }
+            break;
+            case "Iss":
+            {
+
+            }
+            break;
+            case "Cont":
+            {
+
+            }
+            break;
+            case "Act":
+            {
+
+            }
+            break;
+            case "Audit":
+            {
+
             }
             break;
         }

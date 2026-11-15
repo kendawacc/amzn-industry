@@ -36632,6 +36632,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::ScrollView
   Rows: 0
   KeepPosition: 1
+  Viewport: {fileID: 0}
+  AutoSetup: 1
+  Wheel: 20
+  Inertia: 1
+  Deceleration: 0.135
+  Elastic: 1
+  Elasticity: 0.1
   Content: {fileID: 752738317}
 --- !u!1 &1381887239
 GameObject:
@@ -42870,6 +42877,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::ScrollView
   Rows: 0
   KeepPosition: 1
+  Viewport: {fileID: 0}
+  AutoSetup: 1
+  Wheel: 20
+  Inertia: 1
+  Deceleration: 0.135
+  Elastic: 1
+  Elasticity: 0.1
   Content: {fileID: 610485449}
 --- !u!1 &1605926748
 GameObject:
@@ -43645,6 +43659,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::ScrollView
   Rows: 0
   KeepPosition: 1
+  Viewport: {fileID: 0}
+  AutoSetup: 1
+  Wheel: 20
+  Inertia: 1
+  Deceleration: 0.135
+  Elastic: 1
+  Elasticity: 0.1
   Content: {fileID: 444124402}
 --- !u!1 &1635215584
 GameObject:
