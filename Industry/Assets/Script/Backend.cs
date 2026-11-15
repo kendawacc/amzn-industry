@@ -59386,31 +59386,46 @@ public class Backend : MonoBehaviour
                                                                                     }
 
                                                                                     {
-                                                                                        foreach (Transform _Transform
-                                                                                        in Transform)
+                                                                                        bool Boolean
+                                                                                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation
+                                                                                        == false;
+
+                                                                                        switch (Boolean)
                                                                                         {
-                                                                                            _Transform
-                                                                                            .gameObject
-                                                                                            .SetActive(false);
-                                                                                        }
+                                                                                            case true:
+                                                                                            {
+                                                                                                Transform
+                                                                                                = Transform
+                                                                                                .parent;
 
-                                                                                        {
-                                                                                            Transform
-                                                                                            = Transform.Find
-                                                                                            ("Bin[Object]")
-                                                                                            .transform;
+                                                                                                foreach (Transform _Transform
+                                                                                                in Transform)
+                                                                                                {
+                                                                                                    _Transform
+                                                                                                    .gameObject
+                                                                                                    .SetActive(false);
+                                                                                                }
 
-                                                                                            Transform
-                                                                                            .gameObject
-                                                                                            .SetActive(true);
+                                                                                                {
+                                                                                                    Transform
+                                                                                                    = Transform.Find
+                                                                                                    ("Bin[Object]")
+                                                                                                    .transform;
 
-                                                                                            Animator Animator
-                                                                                            = Transform
-                                                                                            .GetComponent
-                                                                                            <Animator>();
+                                                                                                    Transform
+                                                                                                    .gameObject
+                                                                                                    .SetActive(true);
 
-                                                                                            await Animate
-                                                                                            (Animator);
+                                                                                                    Animator Animator
+                                                                                                    = Transform
+                                                                                                    .GetComponent
+                                                                                                    <Animator>();
+
+                                                                                                    await Animate
+                                                                                                    (Animator);
+                                                                                                }
+                                                                                            }
+                                                                                            break;
                                                                                         }
                                                                                     }
                                                                                 }
@@ -60145,6 +60160,44 @@ public class Backend : MonoBehaviour
                         Transform
                         .gameObject
                         .SetActive(false);
+                    });
+                }
+            }
+
+            {
+                {
+                    Canvas
+                    .transform.Find("Widget[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Accessibility[Object]")
+                    .transform.Find("List[Object]")
+                    .transform.Find("Panel[Object]")
+                    .transform.Find("Operations[Object]")
+                    .transform.Find("Manage[Object]")
+                    .transform.Find("Aisle[Object]")
+                    .transform.Find("Progress[Object]")
+                    .transform.Find("Options[Object]")
+                    .transform.Find("Back[Button]")
+                    .GetComponent<Button>()
+                    .onClick
+                    .AddListener(() =>
+                    {
+                        {
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation
+                            = true;
+                        }
+
+                        {
+                            Transform Transform
+                            = Canvas
+                            .transform.Find
+                            ("Widget[Object]")
+                            .transform;
+
+                            Transform
+                            .gameObject
+                            .SetActive(false);
+                        }
                     });
                 }
             }
@@ -62483,6 +62536,7 @@ public class Backend : MonoBehaviour
         Transform Transform
         = Canvas
         .transform.Find("Widget[Object]")
+        .transform.Find("Panel[Object]")
         .transform.Find("Accessibility[Object]")
         .transform.Find("List[Object]")
         .transform.Find("Panel[Object]")
@@ -62503,11 +62557,90 @@ public class Backend : MonoBehaviour
         {
             case "Info":
             {
-                StringBuilder StringBuilder
-                = new StringBuilder();
+                {
+                    {
+                        ScrollView ScrollView
+                        = Transform.Find("Cont[Object]")
+                        .transform.Find("View[Object]")
+                        .transform.Find("List[Object]")
+                        .GetComponent
+                        <ScrollView>();
+
+                        ScrollView
+                        .Clear();
+                    }
+
+                    {
+                        ScrollView ScrollView
+                        = Transform.Find("Act[Object]")
+                        .transform.Find("List[Scroll-View]")
+                        .GetComponent
+                        <ScrollView>();
+
+                        ScrollView
+                        .Clear();
+                    }
+                }
 
                 {
-                    
+                    string String
+                    = String
+                    .Empty;
+
+                    StringBuilder StringBuilder
+                    = new StringBuilder();
+
+                    {
+                        JToken JToken
+                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JObject;
+
+                        StringBuilder
+                        .Append("P-");
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Floor"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        StringBuilder
+                        .Append("-");
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Aisle"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Bin"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        String
+                        = StringBuilder
+                        .ToString();
+                    }
+
+                    Transform.Find("Loc[Object]")
+                    .transform.Find("Label[Button]")
+                    .GetComponent
+                    <TextMeshProUGUI>()
+                    .text
+                    = String;
                 }
             }
             break;
