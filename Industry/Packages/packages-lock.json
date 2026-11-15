@@ -169,7 +169,7 @@
     },
     "com.unity.ext.nunit": {
       "version": "2.1.0",
-      "depth": 1,
+      "depth": 2,
       "source": "builtin",
       "dependencies": {}
     },
@@ -200,12 +200,10 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.40",
+      "version": "3.1.0",
       "depth": 0,
       "source": "registry",
-      "dependencies": {
-        "com.unity.ext.nunit": "1.0.6"
-      },
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
@@ -218,7 +216,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.20.0",
+      "version": "1.20.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -233,14 +231,14 @@
       "dependencies": {}
     },
     "com.unity.memoryprofiler": {
-      "version": "1.1.12",
+      "version": "1.2.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.burst": "1.8.0",
-        "com.unity.collections": "1.2.3",
-        "com.unity.mathematics": "1.2.1",
-        "com.unity.profiling.core": "1.0.0",
+        "com.unity.burst": "1.8.29",
+        "com.unity.collections": "1.2.4",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.profiling.core": "1.0.2",
         "com.unity.editorcoroutines": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -356,7 +354,7 @@
       }
     },
     "com.unity.visualscripting": {
-      "version": "1.9.12",
+      "version": "1.9.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -366,7 +364,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.web.stripping-tool": {
-      "version": "1.3.0",
+      "version": "1.4.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {

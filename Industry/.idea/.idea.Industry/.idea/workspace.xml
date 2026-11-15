@@ -1,11 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a946d08-07e1-4f2c-ab45-daa86e8febcd" name="Changes" comment="" />
+    <list default="true" id="5a946d08-07e1-4f2c-ab45-daa86e8febcd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Industry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Industry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Module/Web/Accessibility/Operations/Inventory/WebAisle(Module).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Module/Web/Accessibility/Operations/Inventory/WebAisle(Module).unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Backend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Backend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectAuditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectAuditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VisualScriptingSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VisualScriptingSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Backend.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0185889378663713" />
+      <entry key="MS500" value="1.5452263614870942" />
+      <entry key="S2" value="2.397715220435799" />
+      <entry key="S5" value="3.0819754609717624" />
+      <entry key="S10" value="4.017624145308601" />
+      <entry key="S30" value="6.186157253077705" />
+      <entry key="S60" value="7.340989686030664" />
+      <entry key="M2" value="8.094029536367675" />
+      <entry key="M5" value="8.617188765574719" />
+      <entry key="M10" value="8.805000761251556" />
+      <entry key="M15" value="8.869187203520106" />
+      <entry key="M30" value="8.934183202950235" />
+      <entry key="H1" value="8.966988292911648" />
+      <entry key="H2" value="8.98346823014875" />
+      <entry key="H4" value="8.991727624816725" />
+      <entry key="D1" value="8.998620368427483" />
+      <entry key="W1" value="8.99980288766396" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.278872660982761" />
+      <entry key="MS500" value="1.128963205334449" />
+      <entry key="S2" value="2.0141061358756573" />
+      <entry key="S5" value="2.83233649387703" />
+      <entry key="S10" value="3.8503988704023646" />
+      <entry key="S30" value="6.098981947156461" />
+      <entry key="S60" value="7.288511735559109" />
+      <entry key="M2" value="8.064808119679135" />
+      <entry key="M5" value="8.604657886487715" />
+      <entry key="M10" value="8.798582883764821" />
+      <entry key="M15" value="8.864873790803042" />
+      <entry key="M30" value="8.93200883849998" />
+      <entry key="H1" value="8.965896649789224" />
+      <entry key="H2" value="8.982921287514998" />
+      <entry key="H4" value="8.991453872497448" />
+      <entry key="D1" value="8.99857470395035" />
+      <entry key="W1" value="8.999796363209091" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -19,15 +93,21 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.7f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\Kendall D - Laptop\Documents\.git\amzn\industry\Industry&quot; -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Kendall D - Laptop\Documents\.git\amzn\industry\Industry" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.6.9f1/Editor/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -35,9 +115,9 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.7f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\Kendall D - Laptop\Documents\.git\amzn\industry\Industry&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Kendall D - Laptop\Documents\.git\amzn\industry\Industry" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.6.9f1/Editor/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -46,12 +126,10 @@
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false">
       <option name="allowRunningInParallel" value="false" />
+      <option name="coreClr" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
