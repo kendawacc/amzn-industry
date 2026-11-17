@@ -56968,6 +56968,7 @@ public class Backend : MonoBehaviour
 
     bool Widget_Panel_Accessibility_Panel_Operations_Inventory_Function_Panel_Move_Cancellation
     = false;
+
     private async UniTask Widget_Panel_Accessibility_Panel_Operations_Inventory_Function_Panel_Move_Task(
     JToken PJToken)
     {
@@ -60209,6 +60210,7 @@ public class Backend : MonoBehaviour
 
     bool Interface_Accessibility_Operations_Inventory_Aisle_Top_Left_Options_Floor_Cancellation
     = false;
+
     private async UniTask Interface_Accessibility_Operations_Inventory_Aisle_Top_Left_Options_Floor_Task(
     JToken PJToken)
     {
@@ -60491,6 +60493,7 @@ public class Backend : MonoBehaviour
 
     bool Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Cancellation
     = false;
+
     private async UniTask Interface_Accessibility_Operations_Inventory_Aisle_Top_Right_Profile_Task(
     JToken PJToken)
     {
@@ -61155,6 +61158,7 @@ public class Backend : MonoBehaviour
     
     bool Interface_Accessibility_Operations_Inventory_Aisle_Center_Cancellation
     = false;
+
     private async UniTask Interface_Accessibility_Operations_Inventory_Aisle_Center_Task(
     JToken PJToken)
     {
@@ -61491,6 +61495,7 @@ public class Backend : MonoBehaviour
 
     bool Interface_Accessibility_Operations_Inventory_Aisle_Center_Template_Cancellation
     = false;
+
     private async UniTask Interface_Accessibility_Operations_Inventory_Aisle_Center_Template_Task(
     JToken PJToken)
     {
@@ -62526,6 +62531,7 @@ public class Backend : MonoBehaviour
         = String
         .Empty
     };
+
     private async UniTask Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
     JToken PJToken)
     {
@@ -62651,44 +62657,191 @@ public class Backend : MonoBehaviour
                 }
 
                 {
-                    foreach (JToken JToken
-                    in new JArray
                     {
+                        await 
+                        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
                         new JObject
                         {
                             ["Event"]
                             = "Iss"
-                        },
+                        });
+                    }
 
+                    {
+                        _ = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
                         new JObject
                         {
                             ["Event"]
                             = "Cont"
-                        },
+                        });
+                    }
 
+                    {
+                        _ = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
                         new JObject
                         {
                             ["Event"]
                             =  "Act"
-                        }
-                    })
-                    {
-                        bool Boolean
-                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cancellation;
-
-                        if (Boolean)
-                        { break; }
-
-                        await 
-                        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task
-                        (JToken);
+                        });
                     }
                 }
             }
             break;
             case "Iss":
             {
-                // here
+                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                .None;
+
+                {
+                    string String
+                    = String
+                    .Empty;
+
+                    StringBuilder StringBuilder
+                    = new StringBuilder();
+
+                    {
+                        JToken JToken
+                        = @Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_JToken;
+
+                        StringBuilder
+                        .Append("P-");
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Floor"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        StringBuilder
+                        .Append("-");
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Aisle"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        {
+                            String
+                            = (string)
+                            JToken
+                            ["Bin"];
+
+                            StringBuilder
+                            .Append(String);
+                        }
+
+                        String
+                        = StringBuilder
+                        .ToString();
+                    }
+
+                    bool Boolean
+                    = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+                    .ContainsKey
+                    (String)
+                    == false;
+
+                    switch (Boolean)
+                    {
+                        case true:
+                        {
+                            Debug
+                            .Log(String);
+
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            = await 
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Task
+                            (String);
+                        }
+                        break;
+                        case false:
+                        {
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+                            [String];
+                        }
+                        break;
+                    }
+                }
+
+                {
+                    // here
+                    
+                    Transform
+                    = Transform.Find
+                    ("Prob[Object]")
+                    .transform;
+
+                    TextMeshProUGUI TextMeshProUGUI
+                    = Transform.Find("Text[Object]")
+                    .transform.Find("Label[Text]")
+                    .GetComponent
+                    <TextMeshProUGUI>();
+
+                    Transform _Transform
+                    =  Transform.Find("Rect[Object]")
+                    .transform.Find("List[Object]")
+                    .transform;
+
+                    foreach (Transform __Transform
+                    in _Transform)
+                    {
+                        __Transform
+                        .gameObject
+                        .SetActive(false);
+                    }
+
+                    switch (Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum)
+                    {
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .None:
+                        {
+                            Transform
+                            = Transform.Find
+                            ("Prob[Object]")
+                            .transform
+                            .gameObject
+                            .SetActive(false);
+                        }
+                        break;
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .BinEmpty:
+                        {
+                            
+                        }
+                        break;
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .BinInactive:
+                        {
+                            
+                        }
+                        break;
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .PalletEmpty:
+                        {
+                            
+                        }
+                        break;
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .PalletIssue:
+                        {
+                            
+                        }
+                        break;
+                    }
+                }
             }
             break;
             case "Cont":
@@ -62710,14 +62863,503 @@ public class Backend : MonoBehaviour
     }
 
     // Test
-
-    private async UniTask<string> Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Task(
-    JToken PJToken)
+    private enum Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
     {
-        // Perform asynchronous operations here
-        await UniTask.Yield();
+        None,
+        BinEmpty,
+        BinInactive,
+        PalletEmpty,
+        PalletIssue
+    }
 
-        return "";
+    Dictionary<string, Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum>
+    Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+    = new Dictionary<string, Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum>();
+
+    private async UniTask<Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum> 
+    Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Task(
+    string PString)
+    {
+        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+        = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+        .None;
+
+        // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/container-hierarchy
+
+        StringBuilder StringBuilder
+        = new StringBuilder();
+
+        StringBuilder
+        .Append("https://");
+        StringBuilder
+        .Append("qi-fcresearch-na.corp");
+        StringBuilder
+        .Append(".amazon.com/");
+
+        string String
+        = (string)
+        ManageJObject
+        ["Credentials"]
+        ["Associate"]
+        ["Site"];
+
+        StringBuilder
+        .Append(String);
+
+        StringBuilder
+        .Append("/results");
+        StringBuilder
+        .Append("/container-hierarchy");
+
+        String
+        = StringBuilder
+        .ToString();
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        String 
+        = await JavaScript_ClientAgent(
+        new JObject
+        {
+            ["Event"]
+            = "Http",
+
+            ["Method"]
+            = "Post",
+
+            ["Url"]
+            = String,
+
+            ["Payload"]
+            = "Form",
+
+            ["Form"]
+            = new JObject
+            {
+                ["s"]
+                = PString
+            }
+        });
+        #else
+        StringBuilder
+        = new StringBuilder();
+
+        StringBuilder
+        .Append(
+        Application
+        .dataPath);
+
+        StringBuilder
+        .Append("/Reference");
+        StringBuilder
+        .Append("/Operations");
+        StringBuilder
+        .Append("/Inventory");
+        StringBuilder
+        .Append("/Aisle");
+        StringBuilder
+        .Append("/Bin");
+        StringBuilder
+        .Append("/Bin");
+
+        String
+        = StringBuilder
+        .ToString();
+
+        String
+        = await File
+        .ReadAllTextAsync
+        (String);
+        #endif
+
+        int Length
+        = String
+        .Length;
+
+        bool Boolean
+        =  JavaScript_ClientAgent_Error_Boolean
+        == false
+
+        && Length
+        > 0;
+
+        switch (Boolean)
+        {
+            case true:
+            {
+                HtmlDocument HtmlDocument
+                = new HtmlDocument();
+
+                HtmlDocument
+                .LoadHtml
+                (String);
+
+                HtmlNodeCollection HtmlNodeCollection
+                = HtmlDocument
+                .DocumentNode
+                .SelectNodes
+                ("//table[@id='table-container-hierarchy']/tbody/tr/td[1]/a");
+
+                Length 
+                = HtmlNodeCollection?
+                .Count(a => 
+                !string
+                .IsNullOrWhiteSpace
+                (a.InnerText)) ?? 0;
+
+                Boolean
+                = Length
+                > 0;
+
+                switch (Boolean)
+                {
+                    case true:
+                    {
+                        foreach (HtmlNode HtmlNode 
+                        in HtmlNodeCollection)
+                        {
+                            String 
+                            = HtmlNode
+                            .InnerText
+                            .Trim();
+
+                            JToken JToken
+                            = new JObject
+                            {
+                                ["Label"]
+                                = String
+                            };
+
+                            Boolean
+                            = string
+                            .IsNullOrWhiteSpace
+                            (String)
+                            == false;
+
+                            if (Boolean)
+                            {
+                                // Get Container Problem
+                                {
+                                    // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/problems
+
+                                    StringBuilder
+                                    = new StringBuilder();
+
+                                    StringBuilder
+                                    .Append("https://");
+                                    StringBuilder
+                                    .Append("qi-fcresearch-na.corp");
+                                    StringBuilder
+                                    .Append(".amazon.com/");
+
+                                    {
+                                        String
+                                        = (string)
+                                        ManageJObject
+                                        ["Credentials"]
+                                        ["Associate"]
+                                        ["Site"];
+
+                                        StringBuilder
+                                        .Append(String);
+                                    }
+
+                                    StringBuilder
+                                    .Append("/results");
+                                    StringBuilder
+                                    .Append("/problems");
+
+                                    String
+                                    = StringBuilder
+                                    .ToString();
+                                    #if !UNITY_EDITOR && UNITY_WEBGL
+                                    String 
+                                    = await JavaScript_ClientAgent(
+                                    new JObject
+                                    {
+                                        ["Event"]
+                                        = "Http",
+
+                                        ["Method"]
+                                        = "Post",
+
+                                        ["Url"]
+                                        = String,
+
+                                        ["Payload"]
+                                        = "Form",
+
+                                        ["Form"]
+                                        = new JObject
+                                        {
+                                            ["s"]
+                                            = (string)
+                                            JToken
+                                            ["Label"]
+                                        }
+                                    });
+                                    #else
+                                    StringBuilder
+                                    = new StringBuilder();
+
+                                    StringBuilder
+                                    .Append(
+                                    Application
+                                    .dataPath);
+
+                                    StringBuilder
+                                    .Append("/Reference");
+                                    StringBuilder
+                                    .Append("/Operations");
+                                    StringBuilder
+                                    .Append("/Inventory");
+                                    StringBuilder
+                                    .Append("/Aisle");
+                                    StringBuilder
+                                    .Append("/Bin");
+                                    StringBuilder
+                                    .Append("/Problems");
+
+                                    String
+                                    = StringBuilder
+                                    .ToString();
+
+                                    String
+                                    = await File
+                                    .ReadAllTextAsync
+                                    (String);
+                                    #endif
+
+                                    Length
+                                    = String
+                                    .Length;
+
+                                    Boolean
+                                    =  JavaScript_ClientAgent_Error_Boolean
+                                    == false
+
+                                    && Length
+                                    > 0;
+
+                                    if (Boolean)
+                                    {
+                                        HtmlDocument
+                                        = new HtmlDocument();
+                                        
+                                        HtmlDocument
+                                        .LoadHtml
+                                        (String);
+
+                                        HtmlNodeCollection  
+                                        = HtmlDocument
+                                        .DocumentNode
+                                        .SelectNodes
+                                        ("//table[@id='table-problems']/tbody/tr");
+
+                                        Boolean 
+                                        = HtmlNodeCollection?
+                                        .Any(HtmlNodeCollection
+                                            => HtmlNodeCollection
+                                            .SelectSingleNode
+                                            ("./td[4]")?
+                                            .InnerText
+                                            .Trim() 
+                                            != "Resolved")
+                                            ?? false;
+
+                                        if (Boolean)
+                                        {
+                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            .PalletIssue;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                // Count Child of Container
+                                { 
+                                    // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/container-hierarchy
+
+                                    StringBuilder
+                                    = new StringBuilder();
+
+                                    StringBuilder
+                                    .Append("https://");
+                                    StringBuilder
+                                    .Append("qi-fcresearch-na.corp");
+                                    StringBuilder
+                                    .Append(".amazon.com/");
+
+                                    {
+                                        String
+                                        = (string)
+                                        ManageJObject
+                                        ["Credentials"]
+                                        ["Associate"]
+                                        ["Site"];
+
+                                        StringBuilder
+                                        .Append(String);
+                                    }
+
+                                    StringBuilder
+                                    .Append("/results");
+                                    StringBuilder
+                                    .Append("/container-hierarchy");
+
+                                    String
+                                    = StringBuilder
+                                    .ToString();
+                                    #if !UNITY_EDITOR && UNITY_WEBGL
+                                    String 
+                                    = await JavaScript_ClientAgent(
+                                    new JObject
+                                    {
+                                        ["Event"]
+                                        = "Http",
+
+                                        ["Method"]
+                                        = "Post",
+
+                                        ["Url"]
+                                        = String,
+
+                                        ["Payload"]
+                                        = "Form",
+
+                                        ["Form"]
+                                        = new JObject
+                                        {
+                                            ["s"]
+                                            = (string)
+                                            JToken
+                                            ["Label"]
+                                        }
+                                    });
+                                    #else
+                                    StringBuilder
+                                    = new StringBuilder();
+
+                                    StringBuilder
+                                    .Append(
+                                    Application
+                                    .dataPath);
+
+                                    StringBuilder
+                                    .Append("/Reference");
+                                    StringBuilder
+                                    .Append("/Operations");
+                                    StringBuilder
+                                    .Append("/Inventory");
+                                    StringBuilder
+                                    .Append("/Aisle");
+                                    StringBuilder
+                                    .Append("/Bin");
+                                    StringBuilder
+                                    .Append("/Child");
+
+                                    String
+                                    = StringBuilder
+                                    .ToString();
+
+                                    String
+                                    = await File
+                                    .ReadAllTextAsync
+                                    (String);
+                                    #endif
+
+                                    Length
+                                    = String
+                                    .Length;
+
+                                    Boolean
+                                    =  JavaScript_ClientAgent_Error_Boolean
+                                    == false
+
+                                    && Length
+                                    > 0;
+
+                                    if (Boolean)
+                                    {
+                                        HtmlDocument
+                                        = new HtmlDocument();
+
+                                        HtmlDocument
+                                        .LoadHtml
+                                        (String);
+
+                                        HtmlNodeCollection 
+                                        = HtmlDocument
+                                        .DocumentNode
+                                        .SelectNodes
+                                        ("//table[@id='table-container-hierarchy']/tbody/tr");
+
+                                        Length 
+                                        = HtmlNodeCollection
+                                        ?.Count ?? 0;
+
+                                        Boolean
+                                        = Length
+                                        == 0;
+
+                                        if (Boolean)
+                                        {
+                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            .PalletEmpty;
+                                            break;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        // if JavaScript_ClientAgent has no error 
+                                        // and return Length '0' Container is empty
+                                        
+                                        Boolean
+                                        =  JavaScript_ClientAgent_Error_Boolean
+                                        == false
+
+                                        && Length
+                                        > 0;
+
+                                        if (Boolean)
+                                        { 
+                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            .PalletEmpty;
+                                            break; 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                    case false:
+                    {
+                        {
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            .BinEmpty;
+                        }
+
+                        {
+                            // here
+                        }
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+
+        {
+            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+            [PString]
+            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum;
+        }
+
+        return Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum;
     }
 
 #elif OSes
