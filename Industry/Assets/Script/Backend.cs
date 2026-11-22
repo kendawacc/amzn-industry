@@ -62757,9 +62757,6 @@ public class Backend : MonoBehaviour
                     {
                         case true:
                         {
-                            Debug
-                            .Log(String);
-
                             Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                             = await 
                             Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Task
@@ -62777,12 +62774,17 @@ public class Backend : MonoBehaviour
                 }
 
                 {
-                    // here
-                    
                     Transform
                     = Transform.Find
                     ("Prob[Object]")
                     .transform;
+
+                    GameObject GameObject
+                    = Transform
+                    .gameObject;
+
+                    GameObject
+                    .SetActive(true);
 
                     TextMeshProUGUI TextMeshProUGUI
                     = Transform.Find("Text[Object]")
@@ -62790,15 +62792,15 @@ public class Backend : MonoBehaviour
                     .GetComponent
                     <TextMeshProUGUI>();
 
-                    Transform _Transform
+                    Transform
                     =  Transform.Find("Rect[Object]")
                     .transform.Find("List[Object]")
                     .transform;
 
-                    foreach (Transform __Transform
-                    in _Transform)
+                    foreach (Transform _Transform
+                    in Transform)
                     {
-                        __Transform
+                        _Transform
                         .gameObject
                         .SetActive(false);
                     }
@@ -62808,36 +62810,60 @@ public class Backend : MonoBehaviour
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                         .None:
                         {
-                            Transform
-                            = Transform.Find
-                            ("Prob[Object]")
-                            .transform
-                            .gameObject
+                            GameObject
                             .SetActive(false);
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                         .BinEmpty:
                         {
-                            
+                            Transform.Find
+                            ("BinInactive[Image]")
+                            .gameObject
+                            .SetActive(true);
+
+                            TextMeshProUGUI
+                            .text
+                            = "Bin is empty. Action: Store inventory in this bin.";
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                         .BinInactive:
                         {
-                            
+                            Transform.Find
+                            ("BinInactive[Image]")
+                            .gameObject
+                            .SetActive(true);
+
+                            TextMeshProUGUI
+                            .text
+                            = "Bin inactive. Action: Inspect, fix, and store inventory.";
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                         .PalletEmpty:
                         {
-                            
+                            Transform.Find
+                            ("PalletEmpty[Image]")
+                            .gameObject
+                            .SetActive(true);
+
+                            TextMeshProUGUI
+                            .text
+                            = "Pallet virtually empty. Action: Move to Problem Solve zone.";
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
                         .PalletIssue:
                         {
-                            
+                            Transform.Find
+                            ("PalletIssue[Image]")
+                            .gameObject
+                            .SetActive(true);
+
+                            TextMeshProUGUI
+                            .text
+                            = "Pallet has a virtual issue. Action: Move to Problem Solve zone.";                      
                         }
                         break;
                     }
@@ -62880,6 +62906,40 @@ public class Backend : MonoBehaviour
     Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Task(
     string PString)
     {
+        Match Match 
+        = Regex
+        .Match(PString, 
+        @"^([A-Z]+)-(\d+)-([A-Z]\d+)([A-Z]\d+)$");
+
+        JObject JObject
+        = new JObject 
+        {
+            ["Floor"]
+            = Match
+            .Groups[2]
+            .Value,
+
+            ["Aisle"]
+            = Match
+            .Groups[3]
+            .Value,
+
+            ["Bin"]
+            = Match
+            .Groups[4]
+            .Value,
+
+            ["Type"]
+            = "Single",
+
+            ["Inventory"]
+            = new 
+            JArray(),
+
+            ["Problem"]
+            = "None"
+        };
+
         Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
         Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
         = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
@@ -62993,328 +63053,186 @@ public class Backend : MonoBehaviour
                 .LoadHtml
                 (String);
 
-                HtmlNodeCollection HtmlNodeCollection
-                = HtmlDocument
-                .DocumentNode
-                .SelectNodes
-                ("//table[@id='table-container-hierarchy']/tbody/tr/td[1]/a");
-
-                Length 
-                = HtmlNodeCollection?
-                .Count(a => 
-                !string
-                .IsNullOrWhiteSpace
-                (a.InnerText)) ?? 0;
-
-                Boolean
-                = Length
-                > 0;
-
-                switch (Boolean)
+                // Get Bin Type
                 {
-                    case true:
-                    {
-                        foreach (HtmlNode HtmlNode 
-                        in HtmlNodeCollection)
+                    String
+                    = HtmlDocument
+                    .DocumentNode
+                    .SelectSingleNode
+                    ("//tr[th[normalize-space()='Bin Type']]/td")
+                    ?.InnerText
+                    .Trim();
+
+                   Boolean
+                   = String
+                   .Contains
+                   ("SINGLE")
+                   == false;
+
+                   switch (Boolean)
+                   {
+                        case true:
                         {
-                            String 
-                            = HtmlNode
-                            .InnerText
-                            .Trim();
+                            JObject
+                            ["Type"]
+                            = "Multi";            
+                        }
+                        break;
+                   }
+                }
 
-                            JToken JToken
-                            = new JObject
+                // Check if Bin is Empty or has Inventory 
+                {
+                    HtmlNodeCollection HtmlNodeCollection
+                    = HtmlDocument
+                    .DocumentNode
+                    .SelectNodes
+                    ("//table[@id='table-container-hierarchy']/tbody/tr/td[1]/a");
+
+                    Length 
+                    = HtmlNodeCollection?
+                    .Count(a => 
+                    !string
+                    .IsNullOrWhiteSpace
+                    (a.InnerText)) ?? 0;
+
+                    Boolean
+                    = Length
+                    > 0;
+
+                    switch (Boolean)
+                    {
+                        case true:
+                        {
+                            JArray JArray
+                            = JObject
+                            ["Inventory"]
+                            .Value
+                            <JArray>();
+
+                            foreach (HtmlNode HtmlNode 
+                            in HtmlNodeCollection)
                             {
-                                ["Label"]
-                                = String
-                            };
+                                String 
+                                = HtmlNode
+                                .InnerText
+                                .Trim();
 
-                            Boolean
-                            = string
-                            .IsNullOrWhiteSpace
-                            (String)
-                            == false;
-
-                            if (Boolean)
-                            {
-                                // Get Container Problem
+                                JToken JToken
+                                = new JObject
                                 {
-                                    // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/problems
+                                    ["Label"]
+                                    = String
+                                };
 
-                                    StringBuilder
-                                    = new StringBuilder();
+                                 JArray
+                                .Add
+                                (String);
 
-                                    StringBuilder
-                                    .Append("https://");
-                                    StringBuilder
-                                    .Append("qi-fcresearch-na.corp");
-                                    StringBuilder
-                                    .Append(".amazon.com/");
+                                Boolean
+                                = string
+                                .IsNullOrWhiteSpace
+                                (String)
+                                == false;
 
+                                if (Boolean)
+                                {
+                                    // Get Container Problem
                                     {
-                                        String
-                                        = (string)
-                                        ManageJObject
-                                        ["Credentials"]
-                                        ["Associate"]
-                                        ["Site"];
+                                        // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/problems
 
                                         StringBuilder
-                                        .Append(String);
-                                    }
-
-                                    StringBuilder
-                                    .Append("/results");
-                                    StringBuilder
-                                    .Append("/problems");
-
-                                    String
-                                    = StringBuilder
-                                    .ToString();
-                                    #if !UNITY_EDITOR && UNITY_WEBGL
-                                    String 
-                                    = await JavaScript_ClientAgent(
-                                    new JObject
-                                    {
-                                        ["Event"]
-                                        = "Http",
-
-                                        ["Method"]
-                                        = "Post",
-
-                                        ["Url"]
-                                        = String,
-
-                                        ["Payload"]
-                                        = "Form",
-
-                                        ["Form"]
-                                        = new JObject
-                                        {
-                                            ["s"]
-                                            = (string)
-                                            JToken
-                                            ["Label"]
-                                        }
-                                    });
-                                    #else
-                                    StringBuilder
-                                    = new StringBuilder();
-
-                                    StringBuilder
-                                    .Append(
-                                    Application
-                                    .dataPath);
-
-                                    StringBuilder
-                                    .Append("/Reference");
-                                    StringBuilder
-                                    .Append("/Operations");
-                                    StringBuilder
-                                    .Append("/Inventory");
-                                    StringBuilder
-                                    .Append("/Aisle");
-                                    StringBuilder
-                                    .Append("/Bin");
-                                    StringBuilder
-                                    .Append("/Problems");
-
-                                    String
-                                    = StringBuilder
-                                    .ToString();
-
-                                    String
-                                    = await File
-                                    .ReadAllTextAsync
-                                    (String);
-                                    #endif
-
-                                    Length
-                                    = String
-                                    .Length;
-
-                                    Boolean
-                                    =  JavaScript_ClientAgent_Error_Boolean
-                                    == false
-
-                                    && Length
-                                    > 0;
-
-                                    if (Boolean)
-                                    {
-                                        HtmlDocument
-                                        = new HtmlDocument();
-                                        
-                                        HtmlDocument
-                                        .LoadHtml
-                                        (String);
-
-                                        HtmlNodeCollection  
-                                        = HtmlDocument
-                                        .DocumentNode
-                                        .SelectNodes
-                                        ("//table[@id='table-problems']/tbody/tr");
-
-                                        Boolean 
-                                        = HtmlNodeCollection?
-                                        .Any(HtmlNodeCollection
-                                            => HtmlNodeCollection
-                                            .SelectSingleNode
-                                            ("./td[4]")?
-                                            .InnerText
-                                            .Trim() 
-                                            != "Resolved")
-                                            ?? false;
-
-                                        if (Boolean)
-                                        {
-                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            .PalletIssue;
-                                            break;
-                                        }
-                                    }
-                                }
-
-                                // Count Child of Container
-                                { 
-                                    // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/container-hierarchy
-
-                                    StringBuilder
-                                    = new StringBuilder();
-
-                                    StringBuilder
-                                    .Append("https://");
-                                    StringBuilder
-                                    .Append("qi-fcresearch-na.corp");
-                                    StringBuilder
-                                    .Append(".amazon.com/");
-
-                                    {
-                                        String
-                                        = (string)
-                                        ManageJObject
-                                        ["Credentials"]
-                                        ["Associate"]
-                                        ["Site"];
+                                        = new StringBuilder();
 
                                         StringBuilder
-                                        .Append(String);
-                                    }
+                                        .Append("https://");
+                                        StringBuilder
+                                        .Append("qi-fcresearch-na.corp");
+                                        StringBuilder
+                                        .Append(".amazon.com/");
 
-                                    StringBuilder
-                                    .Append("/results");
-                                    StringBuilder
-                                    .Append("/container-hierarchy");
-
-                                    String
-                                    = StringBuilder
-                                    .ToString();
-                                    #if !UNITY_EDITOR && UNITY_WEBGL
-                                    String 
-                                    = await JavaScript_ClientAgent(
-                                    new JObject
-                                    {
-                                        ["Event"]
-                                        = "Http",
-
-                                        ["Method"]
-                                        = "Post",
-
-                                        ["Url"]
-                                        = String,
-
-                                        ["Payload"]
-                                        = "Form",
-
-                                        ["Form"]
-                                        = new JObject
                                         {
-                                            ["s"]
+                                            String
                                             = (string)
-                                            JToken
-                                            ["Label"]
+                                            ManageJObject
+                                            ["Credentials"]
+                                            ["Associate"]
+                                            ["Site"];
+
+                                            StringBuilder
+                                            .Append(String);
                                         }
-                                    });
-                                    #else
-                                    StringBuilder
-                                    = new StringBuilder();
 
-                                    StringBuilder
-                                    .Append(
-                                    Application
-                                    .dataPath);
+                                        StringBuilder
+                                        .Append("/results");
+                                        StringBuilder
+                                        .Append("/problems");
 
-                                    StringBuilder
-                                    .Append("/Reference");
-                                    StringBuilder
-                                    .Append("/Operations");
-                                    StringBuilder
-                                    .Append("/Inventory");
-                                    StringBuilder
-                                    .Append("/Aisle");
-                                    StringBuilder
-                                    .Append("/Bin");
-                                    StringBuilder
-                                    .Append("/Child");
-
-                                    String
-                                    = StringBuilder
-                                    .ToString();
-
-                                    String
-                                    = await File
-                                    .ReadAllTextAsync
-                                    (String);
-                                    #endif
-
-                                    Length
-                                    = String
-                                    .Length;
-
-                                    Boolean
-                                    =  JavaScript_ClientAgent_Error_Boolean
-                                    == false
-
-                                    && Length
-                                    > 0;
-
-                                    if (Boolean)
-                                    {
-                                        HtmlDocument
-                                        = new HtmlDocument();
-
-                                        HtmlDocument
-                                        .LoadHtml
-                                        (String);
-
-                                        HtmlNodeCollection 
-                                        = HtmlDocument
-                                        .DocumentNode
-                                        .SelectNodes
-                                        ("//table[@id='table-container-hierarchy']/tbody/tr");
-
-                                        Length 
-                                        = HtmlNodeCollection
-                                        ?.Count ?? 0;
-
-                                        Boolean
-                                        = Length
-                                        == 0;
-
-                                        if (Boolean)
+                                        String
+                                        = StringBuilder
+                                        .ToString();
+                                        #if !UNITY_EDITOR && UNITY_WEBGL
+                                        String 
+                                        = await JavaScript_ClientAgent(
+                                        new JObject
                                         {
-                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            .PalletEmpty;
-                                            break;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        // if JavaScript_ClientAgent has no error 
-                                        // and return Length '0' Container is empty
-                                        
+                                            ["Event"]
+                                            = "Http",
+
+                                            ["Method"]
+                                            = "Post",
+
+                                            ["Url"]
+                                            = String,
+
+                                            ["Payload"]
+                                            = "Form",
+
+                                            ["Form"]
+                                            = new JObject
+                                            {
+                                                ["s"]
+                                                = (string)
+                                                JToken
+                                                ["Label"]
+                                            }
+                                        });
+                                        #else
+                                        StringBuilder
+                                        = new StringBuilder();
+
+                                        StringBuilder
+                                        .Append(
+                                        Application
+                                        .dataPath);
+
+                                        StringBuilder
+                                        .Append("/Reference");
+                                        StringBuilder
+                                        .Append("/Operations");
+                                        StringBuilder
+                                        .Append("/Inventory");
+                                        StringBuilder
+                                        .Append("/Aisle");
+                                        StringBuilder
+                                        .Append("/Bin");
+                                        StringBuilder
+                                        .Append("/Problems");
+
+                                        String
+                                        = StringBuilder
+                                        .ToString();
+
+                                        String
+                                        = await File
+                                        .ReadAllTextAsync
+                                        (String);
+                                        #endif
+
+                                        Length
+                                        = String
+                                        .Length;
+
                                         Boolean
                                         =  JavaScript_ClientAgent_Error_Boolean
                                         == false
@@ -63323,34 +63241,419 @@ public class Backend : MonoBehaviour
                                         > 0;
 
                                         if (Boolean)
-                                        { 
-                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                            .PalletEmpty;
-                                            break; 
+                                        {
+                                            HtmlDocument
+                                            = new HtmlDocument();
+                                            
+                                            HtmlDocument
+                                            .LoadHtml
+                                            (String);
+
+                                            HtmlNodeCollection  
+                                            = HtmlDocument
+                                            .DocumentNode
+                                            .SelectNodes
+                                            ("//table[@id='table-problems']/tbody/tr");
+
+                                            Boolean 
+                                            = HtmlNodeCollection?
+                                            .Any(HtmlNodeCollection
+                                                => HtmlNodeCollection
+                                                .SelectSingleNode
+                                                ("./td[4]")?
+                                                .InnerText
+                                                .Trim() 
+                                                != "Resolved")
+                                                ?? false;
+
+                                            if (Boolean)
+                                            {
+                                                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                .PalletIssue;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Count Child of Container
+                                    { 
+                                        // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/container-hierarchy
+
+                                        StringBuilder
+                                        = new StringBuilder();
+
+                                        StringBuilder
+                                        .Append("https://");
+                                        StringBuilder
+                                        .Append("qi-fcresearch-na.corp");
+                                        StringBuilder
+                                        .Append(".amazon.com/");
+
+                                        {
+                                            String
+                                            = (string)
+                                            ManageJObject
+                                            ["Credentials"]
+                                            ["Associate"]
+                                            ["Site"];
+
+                                            StringBuilder
+                                            .Append(String);
+                                        }
+
+                                        StringBuilder
+                                        .Append("/results");
+                                        StringBuilder
+                                        .Append("/container-hierarchy");
+
+                                        String
+                                        = StringBuilder
+                                        .ToString();
+                                        #if !UNITY_EDITOR && UNITY_WEBGL
+                                        String 
+                                        = await JavaScript_ClientAgent(
+                                        new JObject
+                                        {
+                                            ["Event"]
+                                            = "Http",
+
+                                            ["Method"]
+                                            = "Post",
+
+                                            ["Url"]
+                                            = String,
+
+                                            ["Payload"]
+                                            = "Form",
+
+                                            ["Form"]
+                                            = new JObject
+                                            {
+                                                ["s"]
+                                                = (string)
+                                                JToken
+                                                ["Label"]
+                                            }
+                                        });
+                                        #else
+                                        StringBuilder
+                                        = new StringBuilder();
+
+                                        StringBuilder
+                                        .Append(
+                                        Application
+                                        .dataPath);
+
+                                        StringBuilder
+                                        .Append("/Reference");
+                                        StringBuilder
+                                        .Append("/Operations");
+                                        StringBuilder
+                                        .Append("/Inventory");
+                                        StringBuilder
+                                        .Append("/Aisle");
+                                        StringBuilder
+                                        .Append("/Bin");
+                                        StringBuilder
+                                        .Append("/Child");
+
+                                        String
+                                        = StringBuilder
+                                        .ToString();
+
+                                        String
+                                        = await File
+                                        .ReadAllTextAsync
+                                        (String);
+                                        #endif
+
+                                        Length
+                                        = String
+                                        .Length;
+
+                                        Boolean
+                                        =  JavaScript_ClientAgent_Error_Boolean
+                                        == false
+
+                                        && Length
+                                        > 0;
+
+                                        if (Boolean)
+                                        {
+                                            HtmlDocument
+                                            = new HtmlDocument();
+
+                                            HtmlDocument
+                                            .LoadHtml
+                                            (String);
+
+                                            HtmlNodeCollection 
+                                            = HtmlDocument
+                                            .DocumentNode
+                                            .SelectNodes
+                                            ("//table[@id='table-container-hierarchy']/tbody/tr");
+
+                                            Length 
+                                            = HtmlNodeCollection
+                                            ?.Count ?? 0;
+
+                                            Boolean
+                                            = Length
+                                            == 0;
+
+                                            if (Boolean)
+                                            {
+                                                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                .PalletEmpty;
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            // if JavaScript_ClientAgent has no error 
+                                            // and return Length '0' Container is empty
+                                            
+                                            Boolean
+                                            =  JavaScript_ClientAgent_Error_Boolean
+                                            == false
+
+                                            && Length
+                                            > 0;
+
+                                            if (Boolean)
+                                            { 
+                                                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                .PalletEmpty;
+                                                break; 
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                    break;
-                    case false:
-                    {
+                        break;
+                        case false:
                         {
-                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                            .BinEmpty;
-                        }
+                            {
+                                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                .BinEmpty;
+                            }
 
-                        {
-                            // here
+                            {
+                                // here
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
             }
             break;
+        }
+
+        {
+            String
+            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+            .ToString();
+
+            JObject
+            ["Problem"]
+            = String;
+        }
+
+        // Report Bin Problem to Server
+        {
+            Boolean
+            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+            != Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+            .None;
+            
+            switch (Boolean)
+            {
+                case true:
+                {
+                    Http Http
+                    = new Http();
+
+                    {
+                        StringBuilder
+                        = new StringBuilder();
+
+                        StringBuilder
+                        .Append(EndPoint);
+
+                        StringBuilder
+                        .Append("/Request");
+
+                        String
+                        = StringBuilder
+                        .ToString();
+
+                        Http.Url
+                        = String;
+                    }
+
+                    {
+                        JToken JToken
+                        = ManageJObject
+                        ["Credentials"]
+                        ["Associate"];
+
+                        String
+                        = JToken
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Dictionary<string, string> Dictionary
+                        = new Dictionary<string, string>
+                        {
+                            {
+                                "Credentials",
+                                String
+                            }
+                        };
+
+                        Http
+                        .HttpHeader
+                        = Dictionary;
+                    }
+
+                    {
+                        String
+                        = new JObject
+                        {
+                            ["Associate"]
+                            = new JObject
+                            {
+                                ["UUID"]
+                                = (string)
+                                ManageJObject
+                                ["Credentials"]
+                                ["Associate"]
+                                ["UUID"],
+
+                                ["Accessibility"]
+                                = new JObject
+                                {
+                                    ["Operations"]
+                                    = new JObject
+                                    {
+                                        ["Inventory"]
+                                        = new JObject
+                                        {
+                                            ["Aisle"]
+                                            = new JObject
+                                            {
+                                                ["Site"]
+                                                = (string)
+                                                ManageJObject
+                                                ["Credentials"]
+                                                ["Associate"]
+                                                ["Site"],
+
+                                                ["Bin"]
+                                                = new JObject
+                                                {
+                                                    ["Report"]
+                                                    = new JObject
+                                                    {
+                                                        ["Floor"]
+                                                        = (int)
+                                                        JObject
+                                                        ["Floor"],
+
+                                                        ["Aisle"]
+                                                        = (string)
+                                                        JObject
+                                                        ["Aisle"],
+
+                                                        ["Bin"]
+                                                        = (string)
+                                                        JObject
+                                                        ["Bin"],
+
+                                                        ["Type"]
+                                                        = (string)
+                                                        JObject
+                                                        ["Type"],
+
+                                                        ["Inventory"]
+                                                        = (JArray)
+                                                        JObject
+                                                        ["Inventory"],
+
+                                                        ["Problem"]
+                                                        = (string)
+                                                        JObject
+                                                        ["Problem"]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .ToString(
+                        Formatting
+                        .None);
+
+                        Http.Form
+                        = String;             
+                    }
+
+                    {
+                        Http.HttpCache
+                        = Http
+                        .Cache
+                        .Never;
+
+                        Http.HttpPriority
+                        = Http
+                        .Priority
+                        .Low;
+
+                        byte[] Bytes
+                        = await Http
+                        .PostAsync();
+
+                        Boolean
+                        = Bytes
+                        .Length > 0;
+
+                        switch (Boolean)
+                        {
+                            case true:
+                            {
+                                String
+                                = Encoding.UTF8
+                                .GetString(Bytes);
+
+                                JToken JToken
+                                = JObject
+                                .Parse(String);
+
+                    #if UNITY_EDITOR
+                                String
+                                =  JToken
+                                .ToString
+                                (Formatting
+                                .Indented);
+
+                                Debug
+                                .Log(String);
+                    #endif
+                            }
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
         }
 
         {
