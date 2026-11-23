@@ -63646,6 +63646,8 @@ public class Backend : MonoBehaviour
                                         {
                                             case true:
                                             {
+                                                // here
+                                                
                                                 JArray JArray
                                                 = (JArray)
                                                 JToken
@@ -63658,7 +63660,178 @@ public class Backend : MonoBehaviour
                                                 ["Activity"]
                                                 ["List"];
 
-                                                // here
+                                                foreach (JToken _JToken
+                                                in JArray)
+                                                {
+                                                    Http
+                                                    = new Http();
+
+                                                    {
+                                                        StringBuilder
+                                                        = new StringBuilder();
+
+                                                        StringBuilder
+                                                        .Append(EndPoint);
+
+                                                        StringBuilder
+                                                        .Append("/Request");
+
+                                                        String
+                                                        = StringBuilder
+                                                        .ToString();
+
+                                                        Http.Url
+                                                        = String;
+                                                    }
+
+                                                    {
+                                                        JToken
+                                                        = ManageJObject
+                                                        ["Credentials"]
+                                                        ["Associate"];
+
+                                                        String
+                                                        = JToken
+                                                        .ToString(
+                                                        Formatting
+                                                        .None);
+
+                                                        Dictionary<string, string> Dictionary
+                                                        = new Dictionary<string, string>
+                                                        {
+                                                            {
+                                                                "Credentials",
+                                                                String
+                                                            }
+                                                        };
+
+                                                        Http
+                                                        .HttpHeader
+                                                        = Dictionary;
+                                                    }
+
+                                                    {
+                                                        String
+                                                        = new JObject
+                                                        {
+                                                            ["Associate"]
+                                                            = new JObject
+                                                            {
+                                                                ["UUID"]
+                                                                = (string)
+                                                                ManageJObject
+                                                                ["Credentials"]
+                                                                ["Associate"]
+                                                                ["UUID"],
+
+                                                                ["Accessibility"]
+                                                                = new JObject
+                                                                {
+                                                                    ["Operations"]
+                                                                    = new JObject
+                                                                    {
+                                                                        ["Inventory"]
+                                                                        = new JObject
+                                                                        {
+                                                                            ["Aisle"]
+                                                                            = new JObject
+                                                                            {
+                                                                                ["Site"]
+                                                                                = (string)
+                                                                                ManageJObject
+                                                                                ["Credentials"]
+                                                                                ["Associate"]
+                                                                                ["Site"],
+
+                                                                                ["Bin"]
+                                                                                = new JObject
+                                                                                {
+                                                                                    ["Records"]
+                                                                                    = new JObject
+                                                                                    {
+                                                                                        ["Info"]
+                                                                                        = new JObject
+                                                                                        {
+                                                                                            ["ID"]
+                                                                                            = (string)
+                                                                                            _JToken,
+
+                                                                                            ["Inventory"]
+                                                                                            = new JObject
+                                                                                            {
+                                                                                                ["List"]
+                                                                                                = new JObject
+                                                                                                {
+                                                                                                    ["Offset"]
+                                                                                                    = 0,
+
+                                                                                                    ["Columns"]
+                                                                                                    = 1
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        .ToString(
+                                                        Formatting
+                                                        .None);
+
+                                                        Http.Form
+                                                        = String;             
+                                                    }
+
+                                                    {
+                                                        Http.HttpCache
+                                                        = Http
+                                                        .Cache
+                                                        .Auto;
+
+                                                        Http.HttpPriority
+                                                        = Http
+                                                        .Priority
+                                                        .Low;
+
+                                                        Bytes
+                                                        = await Http
+                                                        .PostAsync();
+
+                                                        Boolean
+                                                        = Bytes
+                                                        .Length > 0;
+
+                                                        switch (Boolean)
+                                                        {
+                                                            case true:
+                                                            {
+                                                                String
+                                                                = Encoding.UTF8
+                                                                .GetString(Bytes);
+
+                                                                JToken
+                                                                = JObject
+                                                                .Parse(String);
+
+                                                    #if UNITY_EDITOR
+                                                                String
+                                                                =  JToken
+                                                                .ToString
+                                                                (Formatting
+                                                                .Indented);
+
+                                                                Debug
+                                                                .Log(String);
+                                                    #endif
+                                                            }
+                                                            break;
+                                                        }
+                                                    }                                                   
+                                                }
                                             }
                                             break;
                                         }
