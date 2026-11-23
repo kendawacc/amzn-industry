@@ -63437,14 +63437,234 @@ public class Backend : MonoBehaviour
                         break;
                         case false:
                         {
+                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                            .BinEmpty;
+                        }
+                        break;
+                    }
+                }
+
+                // Get Bin Activity from the Last 30 Days
+                {
+                    Boolean
+                    = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                    == Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                    .None;
+
+                    switch (Boolean)
+                    {
+                        case true:
+                        {
+                            Http Http
+                            = new Http();
+
                             {
-                                Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
-                                .BinEmpty;
+                                StringBuilder
+                                = new StringBuilder();
+
+                                StringBuilder
+                                .Append(EndPoint);
+
+                                StringBuilder
+                                .Append("/Request");
+
+                                String
+                                = StringBuilder
+                                .ToString();
+
+                                Http.Url
+                                = String;
                             }
 
                             {
-                                // here
+                                JToken JToken
+                                = ManageJObject
+                                ["Credentials"]
+                                ["Associate"];
+
+                                String
+                                = JToken
+                                .ToString(
+                                Formatting
+                                .None);
+
+                                Dictionary<string, string> Dictionary
+                                = new Dictionary<string, string>
+                                {
+                                    {
+                                        "Credentials",
+                                        String
+                                    }
+                                };
+
+                                Http
+                                .HttpHeader
+                                = Dictionary;
+                            }
+
+                            {
+                                String
+                                = new JObject
+                                {
+                                    ["Associate"]
+                                    = new JObject
+                                    {
+                                        ["UUID"]
+                                        = (string)
+                                        ManageJObject
+                                        ["Credentials"]
+                                        ["Associate"]
+                                        ["UUID"],
+
+                                        ["Accessibility"]
+                                        = new JObject
+                                        {
+                                            ["Operations"]
+                                            = new JObject
+                                            {
+                                                ["Inventory"]
+                                                = new JObject
+                                                {
+                                                    ["Aisle"]
+                                                    = new JObject
+                                                    {
+                                                        ["Site"]
+                                                        = (string)
+                                                        ManageJObject
+                                                        ["Credentials"]
+                                                        ["Associate"]
+                                                        ["Site"],
+
+                                                        ["Bin"]
+                                                        = new JObject
+                                                        {
+                                                            ["Activity"]
+                                                            = new JObject
+                                                            {
+                                                                ["List"]
+                                                                = new JObject
+                                                                {
+                                                                    ["Floor"]
+                                                                    = (int)
+                                                                    JObject
+                                                                    ["Floor"],
+
+                                                                    ["Aisle"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Aisle"],
+
+                                                                    ["Bin"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Bin"],
+
+                                                                    ["Offset"]
+                                                                    = 0,
+
+                                                                    ["Columns"]
+                                                                    = 14
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .ToString(
+                                Formatting
+                                .None);
+
+                                Http.Form
+                                = String;             
+                            }
+
+                            {
+                                Http.HttpCache
+                                = Http
+                                .Cache
+                                .Auto;
+
+                                Http.HttpPriority
+                                = Http
+                                .Priority
+                                .Low;
+
+                                byte[] Bytes
+                                = await Http
+                                .PostAsync();
+
+                                Boolean
+                                = Bytes
+                                .Length > 0;
+
+                                switch (Boolean)
+                                {
+                                    case true:
+                                    {
+                                        String
+                                        = Encoding.UTF8
+                                        .GetString(Bytes);
+
+                                        JToken JToken
+                                        = JObject
+                                        .Parse(String);
+
+                            #if UNITY_EDITOR
+                                        String
+                                        =  JToken
+                                        .ToString
+                                        (Formatting
+                                        .Indented);
+
+                                        Debug
+                                        .Log(String);
+                            #endif
+
+                                        string Path
+                                        = "Associate"
+                                        + ".Accessibility"
+                                        + ".Operations"
+                                        + ".Inventory"
+                                        + ".Aisle"
+                                        + ".Bin"
+                                        + ".Activity"
+                                        +  ".List"
+                                        + ".Error";
+
+                                        Boolean
+                                        = JToken
+                                        .SelectToken(
+                                        Path,
+                                        errorWhenNoMatch: false)
+                                        == null;
+
+                                        switch (Boolean)
+                                        {
+                                            case true:
+                                            {
+                                                JArray JArray
+                                                = (JArray)
+                                                JToken
+                                                ["Associate"]
+                                                ["Accessibility"]
+                                                ["Operations"]
+                                                ["Inventory"]
+                                                ["Aisle"]
+                                                ["Bin"]
+                                                ["Activity"]
+                                                ["List"];
+
+                                                // here
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -63464,7 +63684,7 @@ public class Backend : MonoBehaviour
             = String;
         }
 
-        // Report Bin Problem to Server
+        // Report Bin Problem
         {
             Boolean
             = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
