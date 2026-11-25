@@ -62531,7 +62531,6 @@ public class Backend : MonoBehaviour
         = String
         .Empty
     };
-
     private async UniTask Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Task(
     JToken PJToken)
     {
@@ -62822,9 +62821,22 @@ public class Backend : MonoBehaviour
                             .gameObject
                             .SetActive(true);
 
+                            StringBuilder StringBuilder
+                            = new StringBuilder();
+                            
+                            StringBuilder
+                            .AppendLine("Bin is empty");
+
+                            StringBuilder
+                            .AppendLine("Action: Store inventory in this bin.");
+
+                            string String
+                            = StringBuilder
+                            .ToString();
+
                             TextMeshProUGUI
                             .text
-                            = "Bin is empty. Action: Store inventory in this bin.";
+                            = String;
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
@@ -62835,9 +62847,22 @@ public class Backend : MonoBehaviour
                             .gameObject
                             .SetActive(true);
 
+                            StringBuilder StringBuilder
+                            = new StringBuilder();
+
+                            StringBuilder
+                            .AppendLine("Bin inactive.");
+
+                            StringBuilder
+                            .AppendLine("Action: Inspect, fix, and store inventory.");
+
+                            string String
+                            = StringBuilder
+                            .ToString();
+
                             TextMeshProUGUI
                             .text
-                            = "Bin inactive. Action: Inspect, fix, and store inventory.";
+                            = String;
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
@@ -62848,9 +62873,48 @@ public class Backend : MonoBehaviour
                             .gameObject
                             .SetActive(true);
 
+                            StringBuilder StringBuilder
+                            = new StringBuilder();
+
+                            StringBuilder
+                            .AppendLine("Pallet virtually empty.");
+
+                            StringBuilder
+                            .AppendLine("Action: Move to Problem Solve zone.");
+
+                            string String
+                            = StringBuilder
+                            .ToString();
+
                             TextMeshProUGUI
                             .text
-                            = "Pallet virtually empty. Action: Move to Problem Solve zone.";
+                            = String;
+                        }
+                        break;
+                        case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                        .PalletMultiple:
+                        {
+                            Transform.Find
+                            ("PalletMultiple[Image]")
+                            .gameObject
+                            .SetActive(true);
+
+                            StringBuilder StringBuilder
+                            = new StringBuilder();
+
+                            StringBuilder
+                            .AppendLine("Multiple Virtual Pallets Detected.");
+
+                            StringBuilder
+                            .AppendLine("Action: Remove any virtual pallets that are not physically present in the bin.");
+
+                            string String
+                            = StringBuilder
+                            .ToString();
+
+                            TextMeshProUGUI
+                            .text
+                            = String;
                         }
                         break;
                         case Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
@@ -62861,23 +62925,26 @@ public class Backend : MonoBehaviour
                             .gameObject
                             .SetActive(true);
 
+                            StringBuilder StringBuilder
+                            = new StringBuilder();
+
+                            StringBuilder
+                            .AppendLine("Pallet has a virtual issue.");
+
+                            StringBuilder
+                            .AppendLine("Action: Move to Problem Solve zone.");
+
+                            string String
+                            = StringBuilder
+                            .ToString();
+
                             TextMeshProUGUI
                             .text
-                            = "Pallet has a virtual issue. Action: Move to Problem Solve zone.";                      
+                            = String;                   
                         }
                         break;
                     }
                 }
-            }
-            break;
-            case "Cont":
-            {
-
-            }
-            break;
-            case "Act":
-            {
-
             }
             break;
             case "Audit":
@@ -62888,13 +62955,69 @@ public class Backend : MonoBehaviour
         }
     }
 
+    bool Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cont_Cancellation
+    = false;
     // Test
+    private async UniTask Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cont_Task(
+    JToken PJToken)
+    {
+        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Cont_Cancellation
+        = false;
+
+        ScrollView ScrollView
+        = Canvas
+        .transform.Find("Widget[Object]")
+        .transform.Find("Panel[Object]")
+        .transform.Find("Accessibility[Object]")
+        .transform.Find("List[Object]")
+        .transform.Find("Panel[Object]")
+        .transform.Find("Operations[Object]")
+        .transform.Find("Manage[Object]")
+        .transform.Find("Aisle[Object]")
+        .transform.Find("Bin[Object]")
+        .transform.Find("Content[Object]")
+        .transform.Find("List[Scroll-View]")
+        .GetComponent<ScrollRect>()
+        .content
+        .transform.Find("Cont[Object]")
+        .transform.Find("View[Object]")
+        .transform.Find("List[Object]")
+        .GetComponent<ScrollView>();
+
+        ScrollView
+        .Rows
+        = 18;
+
+        Transform Transform
+        = ScrollView
+        .Content
+        .transform;
+
+        switch (
+        (string)
+        PJToken
+        ["Event"])
+        {
+            case "List":
+            {
+                // here
+            }
+            break;
+            case "Info":
+            {
+                
+            }
+            break;
+        }
+    }
+
     private enum Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
     {
         None,
         BinEmpty,
         BinInactive,
         PalletEmpty,
+        PalletMultiple,
         PalletIssue
     }
 
@@ -63118,17 +63241,6 @@ public class Backend : MonoBehaviour
                                 .InnerText
                                 .Trim();
 
-                                JToken JToken
-                                = new JObject
-                                {
-                                    ["Label"]
-                                    = String
-                                };
-
-                                 JArray
-                                .Add
-                                (String);
-
                                 Boolean
                                 = string
                                 .IsNullOrWhiteSpace
@@ -63137,6 +63249,41 @@ public class Backend : MonoBehaviour
 
                                 if (Boolean)
                                 {
+                                    JToken JToken
+                                    = new JObject
+                                    {
+                                        ["Label"]
+                                        = String
+                                    };
+
+                                    JArray
+                                    .Add
+                                    (String);
+        
+                                    // if Bin Type == 'Single' and Contains more then one Container
+                                    {
+                                        String
+                                        = (string)
+                                        JObject
+                                        ["Type"];
+
+                                        Boolean
+                                        = String
+                                        == "Single"
+                                        
+                                        && JArray
+                                        .Count
+                                        >= 2;
+
+                                        if (Boolean)
+                                        { 
+                                            Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                            .PalletMultiple;
+                                            break; 
+                                        }
+                                    }
+
                                     // Get Container Problem
                                     {
                                         // https://qi-fcresearch-na.corp.amazon.com/JWY3/results/problems
@@ -63445,7 +63592,7 @@ public class Backend : MonoBehaviour
                     }
                 }
 
-                // Get Bin Activity from the Last 30 Days
+                // Get Bin Activity from the Last 3 Days
                 {
                     Boolean
                     = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
@@ -63561,10 +63708,10 @@ public class Backend : MonoBehaviour
                                                                     ["Bin"],
 
                                                                     ["Offset"]
-                                                                    = 0,
+                                                                    = 1,
 
                                                                     ["Columns"]
-                                                                    = 14
+                                                                    = 2
                                                                 }
                                                             }
                                                         }
@@ -63646,127 +63793,130 @@ public class Backend : MonoBehaviour
                                         {
                                             case true:
                                             {
-                                                // here
-                                                
                                                 JArray JArray
-                                                = (JArray)
-                                                JToken
-                                                ["Associate"]
-                                                ["Accessibility"]
-                                                ["Operations"]
-                                                ["Inventory"]
-                                                ["Aisle"]
-                                                ["Bin"]
-                                                ["Activity"]
-                                                ["List"];
+                                                = new JArray();
 
-                                                foreach (JToken _JToken
-                                                in JArray)
                                                 {
-                                                    Http
-                                                    = new Http();
+                                                    JArray _JArray
+                                                    = (JArray)
+                                                    JToken
+                                                    ["Associate"]
+                                                    ["Accessibility"]
+                                                    ["Operations"]
+                                                    ["Inventory"]
+                                                    ["Aisle"]
+                                                    ["Bin"]
+                                                    ["Activity"]
+                                                    ["List"];
 
+                                                    foreach (JToken _JToken
+                                                    in _JArray)
                                                     {
-                                                        StringBuilder
-                                                        = new StringBuilder();
-
-                                                        StringBuilder
-                                                        .Append(EndPoint);
-
-                                                        StringBuilder
-                                                        .Append("/Request");
-
-                                                        String
-                                                        = StringBuilder
-                                                        .ToString();
-
-                                                        Http.Url
-                                                        = String;
-                                                    }
-
-                                                    {
-                                                        JToken
-                                                        = ManageJObject
-                                                        ["Credentials"]
-                                                        ["Associate"];
-
-                                                        String
-                                                        = JToken
-                                                        .ToString(
-                                                        Formatting
-                                                        .None);
-
-                                                        Dictionary<string, string> Dictionary
-                                                        = new Dictionary<string, string>
-                                                        {
-                                                            {
-                                                                "Credentials",
-                                                                String
-                                                            }
-                                                        };
-
                                                         Http
-                                                        .HttpHeader
-                                                        = Dictionary;
-                                                    }
+                                                        = new Http();
 
-                                                    {
-                                                        String
-                                                        = new JObject
                                                         {
-                                                            ["Associate"]
+                                                            StringBuilder
+                                                            = new StringBuilder();
+
+                                                            StringBuilder
+                                                            .Append(EndPoint);
+
+                                                            StringBuilder
+                                                            .Append("/Request");
+
+                                                            String
+                                                            = StringBuilder
+                                                            .ToString();
+
+                                                            Http.Url
+                                                            = String;
+                                                        }
+
+                                                        {
+                                                            JToken
+                                                            = ManageJObject
+                                                            ["Credentials"]
+                                                            ["Associate"];
+
+                                                            String
+                                                            = JToken
+                                                            .ToString(
+                                                            Formatting
+                                                            .None);
+
+                                                            Dictionary<string, string> Dictionary
+                                                            = new Dictionary<string, string>
+                                                            {
+                                                                {
+                                                                    "Credentials",
+                                                                    String
+                                                                }
+                                                            };
+
+                                                            Http
+                                                            .HttpHeader
+                                                            = Dictionary;
+                                                        }
+
+                                                        {
+                                                            String
                                                             = new JObject
                                                             {
-                                                                ["UUID"]
-                                                                = (string)
-                                                                ManageJObject
-                                                                ["Credentials"]
                                                                 ["Associate"]
-                                                                ["UUID"],
-
-                                                                ["Accessibility"]
                                                                 = new JObject
                                                                 {
-                                                                    ["Operations"]
+                                                                    ["UUID"]
+                                                                    = (string)
+                                                                    ManageJObject
+                                                                    ["Credentials"]
+                                                                    ["Associate"]
+                                                                    ["UUID"],
+
+                                                                    ["Accessibility"]
                                                                     = new JObject
                                                                     {
-                                                                        ["Inventory"]
+                                                                        ["Operations"]
                                                                         = new JObject
                                                                         {
-                                                                            ["Aisle"]
+                                                                            ["Inventory"]
                                                                             = new JObject
                                                                             {
-                                                                                ["Site"]
-                                                                                = (string)
-                                                                                ManageJObject
-                                                                                ["Credentials"]
-                                                                                ["Associate"]
-                                                                                ["Site"],
-
-                                                                                ["Bin"]
+                                                                                ["Aisle"]
                                                                                 = new JObject
                                                                                 {
-                                                                                    ["Records"]
+                                                                                    ["Site"]
+                                                                                    = (string)
+                                                                                    ManageJObject
+                                                                                    ["Credentials"]
+                                                                                    ["Associate"]
+                                                                                    ["Site"],
+
+                                                                                    ["Bin"]
                                                                                     = new JObject
                                                                                     {
-                                                                                        ["Info"]
+                                                                                        ["Records"]
                                                                                         = new JObject
                                                                                         {
-                                                                                            ["ID"]
-                                                                                            = (string)
-                                                                                            _JToken,
-
-                                                                                            ["Inventory"]
+                                                                                            ["Info"]
                                                                                             = new JObject
                                                                                             {
-                                                                                                ["List"]
+                                                                                                ["ID"]
+                                                                                                = (string)
+                                                                                                _JToken,
+
+                                                                                                ["Inventory"]
                                                                                                 = new JObject
                                                                                                 {
-                                                                                                    ["Offset"]
-                                                                                                    = 0,
+                                                                                                    ["List"]
+                                                                                                    = new JObject
+                                                                                                    {
+                                                                                                        ["Offset"]
+                                                                                                        = 0,
 
-                                                                                                    ["Columns"]
-                                                                                                    = 1
+                                                                                                        ["Columns"]
+                                                                                                        = 1
+                                                                                                    }
                                                                                                 }
                                                                                             }
                                                                                         }
@@ -63777,60 +63927,202 @@ public class Backend : MonoBehaviour
                                                                     }
                                                                 }
                                                             }
+                                                            .ToString(
+                                                            Formatting
+                                                            .None);
+
+                                                            Http.Form
+                                                            = String;             
                                                         }
-                                                        .ToString(
-                                                        Formatting
-                                                        .None);
 
-                                                        Http.Form
-                                                        = String;             
-                                                    }
-
-                                                    {
-                                                        Http.HttpCache
-                                                        = Http
-                                                        .Cache
-                                                        .Auto;
-
-                                                        Http.HttpPriority
-                                                        = Http
-                                                        .Priority
-                                                        .Low;
-
-                                                        Bytes
-                                                        = await Http
-                                                        .PostAsync();
-
-                                                        Boolean
-                                                        = Bytes
-                                                        .Length > 0;
-
-                                                        switch (Boolean)
                                                         {
-                                                            case true:
+                                                            Http.HttpCache
+                                                            = Http
+                                                            .Cache
+                                                            .Auto;
+
+                                                            Http.HttpPriority
+                                                            = Http
+                                                            .Priority
+                                                            .Low;
+
+                                                            Bytes
+                                                            = await Http
+                                                            .PostAsync();
+
+                                                            Boolean
+                                                            = Bytes
+                                                            .Length > 0;
+
+                                                            switch (Boolean)
                                                             {
-                                                                String
-                                                                = Encoding.UTF8
-                                                                .GetString(Bytes);
+                                                                case true:
+                                                                {
+                                                                    String
+                                                                    = Encoding.UTF8
+                                                                    .GetString(Bytes);
 
-                                                                JToken
-                                                                = JObject
-                                                                .Parse(String);
+                                                                    JToken
+                                                                    = JObject
+                                                                    .Parse(String);
 
-                                                    #if UNITY_EDITOR
-                                                                String
-                                                                =  JToken
-                                                                .ToString
-                                                                (Formatting
-                                                                .Indented);
+                                                        #if UNITY_EDITOR
+                                                                    String
+                                                                    =  JToken
+                                                                    .ToString
+                                                                    (Formatting
+                                                                    .Indented);
 
-                                                                Debug
-                                                                .Log(String);
-                                                    #endif
+                                                                    Debug
+                                                                    .Log(String);
+                                                        #endif
+
+                                                                    Path
+                                                                    = "Associate"
+                                                                    + ".Accessibility"
+                                                                    + ".Operations"
+                                                                    + ".Inventory"
+                                                                    + ".Aisle"
+                                                                    + ".Bin"
+                                                                    + ".Records"
+                                                                    + ".Info"
+                                                                    + ".Inventory"
+                                                                    + ".List"
+                                                                    + ".Error";
+
+                                                                    Boolean
+                                                                    = JToken
+                                                                    .SelectToken(
+                                                                    Path,
+                                                                    errorWhenNoMatch: false)
+                                                                    == null;
+
+                                                                    switch (Boolean)
+                                                                    {
+                                                                        case true:
+                                                                        {
+                                                                            String
+                                                                            = String
+                                                                            .Empty;
+
+                                                                            JArray __JArray
+                                                                            = (JArray)
+                                                                            JToken
+                                                                            ["Associate"]
+                                                                            ["Accessibility"]
+                                                                            ["Operations"]
+                                                                            ["Inventory"]
+                                                                            ["Aisle"]
+                                                                            ["Bin"]
+                                                                            ["Records"]
+                                                                            ["Info"]
+                                                                            ["Inventory"]
+                                                                            ["List"];
+
+                                                                            Length
+                                                                            = __JArray
+                                                                            .Count;
+
+                                                                            Boolean
+                                                                            = Length
+                                                                            > 0;
+
+                                                                            switch (Boolean)
+                                                                            {
+                                                                                case true:
+                                                                                {
+                                                                                    JToken __JToken
+                                                                                    =  __JArray
+                                                                                    .FirstOrDefault();
+
+                                                                                    String
+                                                                                    = (string)
+                                                                                    __JToken;
+                                                                                }
+                                                                                break;
+                                                                            }
+
+                                                                            {
+                                                                                JArray
+                                                                                .Add
+                                                                                (String);
+                                                                            }
+                                                                        }
+                                                                        break;
+                                                                    }
+                                                                }
+                                                                break;
                                                             }
-                                                            break;
+                                                        }                                                   
+                                                    }
+                                                }
+
+                                                {
+                                                    Length
+                                                    = JArray
+                                                    .Count;
+
+                                                    Boolean
+                                                    = Length
+                                                    >= 2;
+
+                                                    switch (Boolean)
+                                                    {
+                                                        case true:
+                                                        {
+                                                            String
+                                                            = String
+                                                            .Empty;
+
+                                                            {
+                                                                JArray _JArray 
+                                                                = JObject
+                                                                ["Inventory"]
+                                                                .Value
+                                                                <JArray>();
+
+                                                                Length
+                                                                = _JArray 
+                                                                .Count;
+
+                                                                Boolean
+                                                                = Length
+                                                                > 0;
+
+                                                                switch (Boolean)
+                                                                {
+                                                                    case true:
+                                                                    {
+                                                                        String
+                                                                        = (string)
+                                                                        _JArray 
+                                                                        .FirstOrDefault();
+                                                                    }
+                                                                    break;
+                                                                }
+                                                            }
+
+                                                            {
+                                                                Boolean 
+                                                                = JArray
+                                                                .All(x => 
+                                                                (string)x 
+                                                                == String);
+
+                                                                switch (Boolean)
+                                                                {
+                                                                    case true:
+                                                                    {   
+                                                                        Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                                        = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum
+                                                                        .BinInactive;
+                                                                    }
+                                                                    break;
+                                                                }
+                                                            }
                                                         }
-                                                    }                                                   
+                                                        break;
+                                                    }
                                                 }
                                             }
                                             break;
@@ -63868,181 +64160,212 @@ public class Backend : MonoBehaviour
             {
                 case true:
                 {
-                    Http Http
-                    = new Http();
+                    Boolean
+                    = true;
 
                     {
-                        StringBuilder
-                        = new StringBuilder();
+                        bool _Boolean
+                        = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+                        .ContainsKey
+                        (PString);
 
-                        StringBuilder
-                        .Append(EndPoint);
-
-                        StringBuilder
-                        .Append("/Request");
-
-                        String
-                        = StringBuilder
-                        .ToString();
-
-                        Http.Url
-                        = String;
-                    }
-
-                    {
-                        JToken JToken
-                        = ManageJObject
-                        ["Credentials"]
-                        ["Associate"];
-
-                        String
-                        = JToken
-                        .ToString(
-                        Formatting
-                        .None);
-
-                        Dictionary<string, string> Dictionary
-                        = new Dictionary<string, string>
+                        switch (_Boolean)
                         {
+                            case true:
                             {
-                                "Credentials",
-                                String
+                                Boolean
+                                = Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Dictionary
+                                [PString]
+                                != Widget_Panel_Accessibility_Panel_Operations_Manage_Aisle_Bin_Inspect_Enum;
                             }
-                        };
-
-                        Http
-                        .HttpHeader
-                        = Dictionary;
+                            break;
+                        }
                     }
 
                     {
-                        String
-                        = new JObject
+                        switch (Boolean)
                         {
-                            ["Associate"]
-                            = new JObject
+                            case true:
                             {
-                                ["UUID"]
-                                = (string)
-                                ManageJObject
-                                ["Credentials"]
-                                ["Associate"]
-                                ["UUID"],
+                                Http Http
+                                = new Http();
 
-                                ["Accessibility"]
-                                = new JObject
                                 {
-                                    ["Operations"]
+                                    StringBuilder
+                                    = new StringBuilder();
+
+                                    StringBuilder
+                                    .Append(EndPoint);
+
+                                    StringBuilder
+                                    .Append("/Request");
+
+                                    String
+                                    = StringBuilder
+                                    .ToString();
+
+                                    Http.Url
+                                    = String;
+                                }
+
+                                {
+                                    JToken JToken
+                                    = ManageJObject
+                                    ["Credentials"]
+                                    ["Associate"];
+
+                                    String
+                                    = JToken
+                                    .ToString(
+                                    Formatting
+                                    .None);
+
+                                    Dictionary<string, string> Dictionary
+                                    = new Dictionary<string, string>
+                                    {
+                                        {
+                                            "Credentials",
+                                            String
+                                        }
+                                    };
+
+                                    Http
+                                    .HttpHeader
+                                    = Dictionary;
+                                }
+
+                                {
+                                    String
                                     = new JObject
                                     {
-                                        ["Inventory"]
+                                        ["Associate"]
                                         = new JObject
                                         {
-                                            ["Aisle"]
+                                            ["UUID"]
+                                            = (string)
+                                            ManageJObject
+                                            ["Credentials"]
+                                            ["Associate"]
+                                            ["UUID"],
+
+                                            ["Accessibility"]
                                             = new JObject
                                             {
-                                                ["Site"]
-                                                = (string)
-                                                ManageJObject
-                                                ["Credentials"]
-                                                ["Associate"]
-                                                ["Site"],
-
-                                                ["Bin"]
+                                                ["Operations"]
                                                 = new JObject
                                                 {
-                                                    ["Report"]
+                                                    ["Inventory"]
                                                     = new JObject
                                                     {
-                                                        ["Floor"]
-                                                        = (int)
-                                                        JObject
-                                                        ["Floor"],
-
                                                         ["Aisle"]
-                                                        = (string)
-                                                        JObject
-                                                        ["Aisle"],
+                                                        = new JObject
+                                                        {
+                                                            ["Site"]
+                                                            = (string)
+                                                            ManageJObject
+                                                            ["Credentials"]
+                                                            ["Associate"]
+                                                            ["Site"],
 
-                                                        ["Bin"]
-                                                        = (string)
-                                                        JObject
-                                                        ["Bin"],
+                                                            ["Bin"]
+                                                            = new JObject
+                                                            {
+                                                                ["Report"]
+                                                                = new JObject
+                                                                {
+                                                                    ["Floor"]
+                                                                    = (int)
+                                                                    JObject
+                                                                    ["Floor"],
 
-                                                        ["Type"]
-                                                        = (string)
-                                                        JObject
-                                                        ["Type"],
+                                                                    ["Aisle"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Aisle"],
 
-                                                        ["Inventory"]
-                                                        = (JArray)
-                                                        JObject
-                                                        ["Inventory"],
+                                                                    ["Bin"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Bin"],
 
-                                                        ["Problem"]
-                                                        = (string)
-                                                        JObject
-                                                        ["Problem"]
+                                                                    ["Type"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Type"],
+
+                                                                    ["Inventory"]
+                                                                    = (JArray)
+                                                                    JObject
+                                                                    ["Inventory"],
+
+                                                                    ["Problem"]
+                                                                    = (string)
+                                                                    JObject
+                                                                    ["Problem"]
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
+                                    .ToString(
+                                    Formatting
+                                    .None);
+
+                                    Http.Form
+                                    = String;             
+                                }
+
+                                {
+                                    Http.HttpCache
+                                    = Http
+                                    .Cache
+                                    .Never;
+
+                                    Http.HttpPriority
+                                    = Http
+                                    .Priority
+                                    .Low;
+
+                                    byte[] Bytes
+                                    = await Http
+                                    .PostAsync();
+
+                                    Boolean
+                                    = Bytes
+                                    .Length > 0;
+
+                                    switch (Boolean)
+                                    {
+                                        case true:
+                                        {
+                                            String
+                                            = Encoding.UTF8
+                                            .GetString(Bytes);
+
+                                            JToken JToken
+                                            = JObject
+                                            .Parse(String);
+
+                                #if UNITY_EDITOR
+                                            String
+                                            =  JToken
+                                            .ToString
+                                            (Formatting
+                                            .Indented);
+
+                                            Debug
+                                            .Log(String);
+                                #endif
+                                        }
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        .ToString(
-                        Formatting
-                        .None);
-
-                        Http.Form
-                        = String;             
-                    }
-
-                    {
-                        Http.HttpCache
-                        = Http
-                        .Cache
-                        .Never;
-
-                        Http.HttpPriority
-                        = Http
-                        .Priority
-                        .Low;
-
-                        byte[] Bytes
-                        = await Http
-                        .PostAsync();
-
-                        Boolean
-                        = Bytes
-                        .Length > 0;
-
-                        switch (Boolean)
-                        {
-                            case true:
-                            {
-                                String
-                                = Encoding.UTF8
-                                .GetString(Bytes);
-
-                                JToken JToken
-                                = JObject
-                                .Parse(String);
-
-                    #if UNITY_EDITOR
-                                String
-                                =  JToken
-                                .ToString
-                                (Formatting
-                                .Indented);
-
-                                Debug
-                                .Log(String);
-                    #endif
-                            }
                             break;
-                        }
+                        }    
                     }
                 }
                 break;
